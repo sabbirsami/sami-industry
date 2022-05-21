@@ -7,8 +7,8 @@ import CustomLink from "../CustomLink";
 const HeaderNavbar = () => {
     return (
         <div className="headerNavbar">
-            <Navbar bg="light" expand="lg">
-                <Container>
+            <Navbar bg="light" expand="lg" className="fixed-top">
+                <Container className="py-2">
                     <Navbar.Brand href="#">
                         <img className="w-100" src={NavLogo} alt="" />
                     </Navbar.Brand>

@@ -5,3 +5,28 @@ body {
     font-family: rubik;
     font-size: 26px;
 }
+
+/* CUSTOM BOOTSTRAP CLASS  */
+.fs-7 {
+    font-size: 60px;
+}
+
+/* BANNER SECTION  */
+.banner_section_bg {
+    background-image: url("../Assets/images/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner_content {
+    background: #fff;
+    padding: 73px 56px 100px 50px;
+    position: relative;
+    z-index: 9;
+    display: inline-block;
+}
+.banner_button {
+    position: absolute;
+    bottom: 0;
+    left: 55px;
+}
