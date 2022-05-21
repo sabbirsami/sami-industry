@@ -12,8 +12,8 @@ const HeaderNavbar = () => {
                     <Navbar.Brand href="#">
                         <img className="w-100" src={NavLogo} alt="" />
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav
                             className="ms-auto my-2 my-lg-0"
                             style={{ maxHeight: "100px" }}
