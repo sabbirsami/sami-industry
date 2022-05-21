@@ -10,7 +10,7 @@ const Partnership = () => {
         <div className="partner_section_bg">
             <div className="container">
                 <div className="row">
-                    <div className="d-flex flex-sm-row flex-sm-row-reverse justify-content-center align-items-center">
+                    <div className="d-flex flex-sm-row flex-sm-row-reverse justify-content-center align-items-center py-4">
                         <div className="p-5">
                             <img src={partner1} alt="" />
                         </div>

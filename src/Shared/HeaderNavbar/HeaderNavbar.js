@@ -25,11 +25,11 @@ const HeaderNavbar = () => {
                             <CustomLink to="/purchase" href="#action1">
                                 Purchase
                             </CustomLink>
-                            <CustomLink to="/myProfile" href="#action1">
-                                My Profile
-                            </CustomLink>
                             <CustomLink to="/myOrders" href="#action1">
                                 My Orders
+                            </CustomLink>
+                            <CustomLink to="/myProfile" href="#action1">
+                                My Profile
                             </CustomLink>
                             <CustomLink to="/login" href="#action2">
                                 Login
