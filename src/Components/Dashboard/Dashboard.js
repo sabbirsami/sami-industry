@@ -5,18 +5,13 @@ import CustomLink from "../../Shared/CustomLink";
 
 const Dashboard = () => {
     return (
-        <div className="pt-5 mt-4">
+        <div className="pt-5 mt-3">
             {["sm"].map((expand) => (
-                <Navbar
-                    key={expand}
-                    bg=""
-                    expand={expand}
-                    className="mb-3 mt-1  py-3"
-                >
+                <Navbar key={expand} bg="" expand={expand} className="pt-3">
                     <Container fluid className="remove_align_item">
-                        <div className="col-lg-2 d-lg-block d-none">
+                        <div className="col-lg-2 d-lg-block d-none text-end">
                             <Navbar.Brand
-                                className="py-5 fs-1 fw-semi-bold "
+                                className="py-5 fs-1 m-0 fw-semi-bold "
                                 href="#"
                             >
                                 Dashboard
@@ -35,7 +30,7 @@ const Dashboard = () => {
                                         Dashboard
                                     </Offcanvas.Title>
                                 </Offcanvas.Header>
-                                <Offcanvas.Body>
+                                <Offcanvas.Body className="d-block">
                                     <Nav className="d-block">
                                         <CustomLink
                                             className="d-block mt-2"
@@ -62,6 +57,7 @@ const Dashboard = () => {
                         </div>
                         <div className="col-lg-10 col-12">
                             <Navbar.Toggle
+                                className="outline-none border-0 bg-danger rounded-0"
                                 aria-controls={`offcanvasNavbar-expand-${expand}`}
                             />
                             <Outlet></Outlet>
