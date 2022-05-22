@@ -1,10 +1,11 @@
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import NavLogo from "../Assets/images/logo.png";
 
 const Footer = () => {
     return (
-        <div className="footer_section bg-dark text-light">
+        <footer className="footer_section bg-light text-dark">
             <div className="py-5">
                 <div className="container">
                     <div className="py-5">
@@ -129,9 +130,14 @@ const Footer = () => {
                                 </p>
                             </div>
                             <div className="col-lg-6">
-                                <div className="text-end">
-                                    <h5 className="py-2">SAMI INDUSTRY</h5>
-                                    <p>
+                                <div className="text-lg-end">
+                                    <img
+                                        style={{ width: "200px" }}
+                                        className="p-3"
+                                        src={NavLogo}
+                                        alt=""
+                                    />
+                                    <p className="p-3">
                                         Copyright ©2022 All rights reserved |
                                         This template is made with by
                                         SamiIndustry.com
@@ -142,7 +148,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

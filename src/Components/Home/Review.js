@@ -20,7 +20,7 @@ const Review = () => {
                     <div className="col-lg-4">
                         <div className="py-lg-5">
                             <div className="pt-3">
-                                <div className="review_content py-5">
+                                <div className="review_content py-5 text-lg-start text-center">
                                     <h1>
                                         Take a look our <br /> Client{" "}
                                         <span className="bg-light py-0 px-1 text-dark">
