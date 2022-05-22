@@ -39,7 +39,7 @@ const SignUp = () => {
             </p>
         );
     }
-    if (googleLoading || loading) {
+    if (googleLoading || loading || updating) {
         return <Loading></Loading>;
     }
     if (googleUser || user) {

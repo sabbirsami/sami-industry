@@ -39,10 +39,6 @@ const Login = () => {
         console.log(googleUser);
         navigate("/");
     }
-
-    // const handleLogin = () => {
-    //     onSubmit={handleLogin}
-    // };
     return (
         <div>
             <div className="container">

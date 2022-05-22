@@ -24,7 +24,10 @@ const HeaderNavbar = () => {
                         <img className="w-100" src={NavLogo} alt="" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Navbar.Collapse
+                        id="responsive-navbar-nav"
+                        className="align-items-lg-center"
+                    >
                         <Nav
                             className="ms-auto my-2 my-lg-0"
                             style={{ maxHeight: "100px" }}
@@ -38,6 +41,9 @@ const HeaderNavbar = () => {
                             </CustomLink>
                             <CustomLink to="/myOrders" href="#action1">
                                 My Orders
+                            </CustomLink>
+                            <CustomLink to="/addReview" href="#action1">
+                                Add Review
                             </CustomLink>
                             <CustomLink to="/myProfile" href="#action1">
                                 My Profile

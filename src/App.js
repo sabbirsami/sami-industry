@@ -8,6 +8,7 @@ import Footer from "./Shared/Footer";
 import "swiper/css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Login/SignUp";
+import AddReview from "./Components/AddReview/AddReview";
 
 function App() {
     return (
@@ -16,6 +17,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
+                <Route
+                    path="/addReview"
+                    element={<AddReview></AddReview>}
+                ></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
             </Routes>
