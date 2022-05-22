@@ -1,30 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import {
+    useSignInWithEmailAndPassword,
+    useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 
 const Login = () => {
+    const navigate = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
 
     // CONDITION
     let errorMessage;
-    if (googleError) {
+    if (googleError || error) {
         errorMessage = (
             <p className="text-danger text-center m-0 pt-2">
                 <small>
-                    <i>{googleError?.message.split(":")[1]}</i>
+                    <i>
+                        {googleError?.message.split(":")[1]}{" "}
+                        {error.message.split(":")[1]}
+                    </i>
                 </small>
             </p>
         );
     }
-    if (googleLoading) {
+    if (googleLoading || loading) {
         return <Loading></Loading>;
     }
-    if (googleUser) {
+    if (googleUser || user) {
         console.log(googleUser);
+        navigate("/");
     }
 
     // const handleLogin = () => {
@@ -44,6 +57,10 @@ const Login = () => {
                                 >
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control
+                                        required
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
                                         className="rounded-0"
                                         type="email"
                                         placeholder="Enter email"
@@ -56,6 +73,10 @@ const Login = () => {
                                 >
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
+                                        required
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
                                         className="rounded-0"
                                         type="password"
                                         placeholder="Password"
@@ -63,6 +84,12 @@ const Login = () => {
                                 </Form.Group>
 
                                 <button
+                                    onClick={() =>
+                                        signInWithEmailAndPassword(
+                                            email,
+                                            password
+                                        )
+                                    }
                                     type="submit"
                                     className="btn btn-danger rounded-0 w-100 py-2"
                                 >
