@@ -7,7 +7,7 @@ import partner5 from "../../Assets/images/partners/partner5.webp";
 
 const Partnership = () => {
     return (
-        <div className="partner_section_bg">
+        <div className="partner_section_bg ">
             <div className="container">
                 <div className="row">
                     <div className="d-flex flex-sm-row flex-sm-row-reverse justify-content-center align-items-center py-4">

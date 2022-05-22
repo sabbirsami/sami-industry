@@ -1,6 +1,5 @@
 import useProducts from "../../Hooks/useProducts";
 import Product from "./Product";
-import ProductsHome from "./ProductsHome";
 
 const Products = () => {
     const [products, setProducts] = useProducts([]);
@@ -20,12 +19,6 @@ const Products = () => {
                     </div>
                     {products.map((product) => (
                         <Product key={product.id} product={product}></Product>
-                    ))}
-                    {products.slice(0, 6).map((product) => (
-                        <ProductsHome
-                            key={product.id}
-                            product={product}
-                        ></ProductsHome>
                     ))}
                 </div>
             </div>

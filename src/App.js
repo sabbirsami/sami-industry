@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import HeaderNavbar from "./Shared/HeaderNavbar/HeaderNavbar";
 import Home from "../src/Components/Home/Home";
+import Products from "../src/Components/Home/Products";
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <HeaderNavbar></HeaderNavbar>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
+                <Route path="/products" element={<Products></Products>}></Route>
             </Routes>
             <Toaster position="top-center" reverseOrder={false} />
         </>

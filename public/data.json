@@ -1,44 +1,44 @@
 [
     {
         "id": "5",
-        "price": "80",
+        "price": "880",
         "email": "farmiOrganic@gmail.com",
         "name": "Four Cylinder Engine",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "26",
+        "quantity": "26000",
         "minimumOrderQuantity": "1000",
         "supplier": "Beverly Warner",
         "img": "https://i.ibb.co/jyw5W5f/img-020101-0102.jpg"
     },
     {
         "id": "6",
-        "price": "70",
+        "price": "270",
         "email": "farmiOrganic@gmail.com",
-        "name": "Orange",
+        "name": "Hand Wrench",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "28",
+        "quantity": "35000",
         "minimumOrderQuantity": "1000",
         "supplier": "Beverly Warner",
         "img": "https://i.ibb.co/SQShhm5/img-020101-0103.jpg"
     },
     {
         "id": "7",
-        "price": "90",
+        "price": "1090",
         "email": "farmiOrganic@gmail.com",
         "name": "TRW Corner",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "36",
+        "quantity": "20000",
         "minimumOrderQuantity": "1000",
         "supplier": "Nellie Lane",
         "img": "https://i.ibb.co/cbzqGJF/img-020101-0303.jpg"
     },
     {
         "id": "8",
-        "price": "80",
+        "price": "988",
         "email": "farmiOrganic@gmail.com",
         "name": "LF125 Transmission",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "34",
+        "quantity": "20034",
         "minimumOrderQuantity": "1000",
         "supplier": "Wade Moran",
         "img": "https://i.ibb.co/BByrbSk/img-020101-0203.jpg"
@@ -49,7 +49,7 @@
         "email": "farmiOrganic@gmail.com",
         "name": "Talis S Variarc Nut",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "20",
+        "quantity": "45000",
         "minimumOrderQuantity": "1000",
         "supplier": "Jane Jones",
         "img": "https://i.ibb.co/CJXvVxD/img-020102-03.jpg"
@@ -57,11 +57,11 @@
 
     {
         "id": "2",
-        "price": "50",
+        "price": "1050",
         "email": "farmiOrganic@gmail.com",
         "name": "Car Suspension",
         "about": "The design of an automobile suspension is dictated by factors as the size or class of the vehicle",
-        "quantity": "35",
+        "quantity": "38000",
         "minimumOrderQuantity": "1000",
         "supplier": "Fredrick Joseph",
         "img": "https://i.ibb.co/Hq837kW/img-020101-0302.jpg"
