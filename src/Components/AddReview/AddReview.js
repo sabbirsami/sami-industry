@@ -1,8 +1,34 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const AddReview = () => {
+    const { register, reset, handleSubmit } = useForm();
+
+    const onSubmit = async (data) => {
+        fetch("http://localhost:5000/review", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result) {
+                    toast.success("Successfully added");
+                    reset();
+                }
+
+                console.log("Success:", result);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+        reset();
+    };
+
     return (
         <div className="add_review_section_bg">
             <div className="container">
@@ -16,17 +42,21 @@ const AddReview = () => {
                                             Add Review
                                         </h1>
                                         <div className="py-4">
-                                            <Form>
-                                                <Form.Group
-                                                    className="mb-3"
-                                                    controlId="formBasicEmail"
-                                                >
+                                            <Form
+                                                onSubmit={handleSubmit(
+                                                    onSubmit
+                                                )}
+                                            >
+                                                <Form.Group className="mb-3">
                                                     <Form.Label>
                                                         Your Name
                                                     </Form.Label>
                                                     <Form.Control
+                                                        {...register("name", {
+                                                            required: true,
+                                                        })}
                                                         className="rounded-0"
-                                                        type="email"
+                                                        type="text"
                                                         placeholder="Enter name"
                                                     />
                                                 </Form.Group>
@@ -38,6 +68,9 @@ const AddReview = () => {
                                                         Email address
                                                     </Form.Label>
                                                     <Form.Control
+                                                        {...register("email", {
+                                                            required: true,
+                                                        })}
                                                         required
                                                         className="rounded-0"
                                                         type="email"
@@ -53,6 +86,9 @@ const AddReview = () => {
                                                         Review
                                                     </Form.Label>
                                                     <Form.Control
+                                                        {...register("dic", {
+                                                            required: true,
+                                                        })}
                                                         className="rounded-0"
                                                         as="textarea"
                                                         rows={4}

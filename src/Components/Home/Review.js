@@ -9,7 +9,7 @@ import quote from "../../Assets/images/chat-left-quote-fill.png";
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch("review.json")
+        fetch("http://localhost:5000/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -44,7 +44,7 @@ const Review = () => {
                             >
                                 <div className="bg-light">
                                     {reviews.map((review) => (
-                                        <SwiperSlide>
+                                        <SwiperSlide key={review._id}>
                                             <div className="p-5">
                                                 <div className="reviews p-lg-5">
                                                     <img

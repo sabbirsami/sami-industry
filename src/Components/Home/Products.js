@@ -20,7 +20,7 @@ const Products = () => {
                         </div>
                     </div>
                     {products.map((product) => (
-                        <Product key={product.id} product={product}></Product>
+                        <Product key={product._id} product={product}></Product>
                     ))}
                 </div>
             </div>

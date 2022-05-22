@@ -21,7 +21,7 @@ const ProductsHome = () => {
                         </div>
                     </div>
                     {products.slice(0, 6).map((product) => (
-                        <Product key={product.id} product={product}></Product>
+                        <Product key={product._id} product={product}></Product>
                     ))}
                     <div className="text-center">
                         <button class="btn mx-auto btn-outline-white border-0 rounded-0">
