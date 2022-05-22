@@ -8,7 +8,10 @@ import Footer from "./Shared/Footer";
 import "swiper/css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Login/SignUp";
+import MyProfile from "./Components/MyProfile/MyProfile";
+import MyOrders from "./Components/MyOrders/MyOrders";
 import AddReview from "./Components/AddReview/AddReview";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -17,10 +20,19 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
-                <Route
-                    path="/addReview"
-                    element={<AddReview></AddReview>}
-                ></Route>
+                <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+                    <Route index element={<MyProfile></MyProfile>}></Route>
+                    <Route
+                        path="addReview"
+                        element={<AddReview></AddReview>}
+                    ></Route>
+
+                    <Route
+                        path="myOrders"
+                        element={<MyOrders></MyOrders>}
+                    ></Route>
+                </Route>
+
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
             </Routes>

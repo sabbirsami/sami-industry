@@ -85,6 +85,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.remove_align_item {
+    align-items: start !important;
+}
 
 /* FOOTER SECTION  */
 .footer_section {

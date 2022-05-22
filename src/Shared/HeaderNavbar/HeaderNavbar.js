@@ -42,12 +42,7 @@ const HeaderNavbar = () => {
                             <CustomLink to="/myOrders" href="#action1">
                                 My Orders
                             </CustomLink>
-                            <CustomLink to="/addReview" href="#action1">
-                                Add Review
-                            </CustomLink>
-                            <CustomLink to="/myProfile" href="#action1">
-                                My Profile
-                            </CustomLink>
+
                             {user ? (
                                 <button
                                     onClick={logOut}
