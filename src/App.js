@@ -5,6 +5,7 @@ import HeaderNavbar from "./Shared/HeaderNavbar/HeaderNavbar";
 import Home from "../src/Components/Home/Home";
 import Products from "../src/Components/Home/Products";
 import Footer from "./Shared/Footer";
+import "swiper/css";
 
 function App() {
     return (
