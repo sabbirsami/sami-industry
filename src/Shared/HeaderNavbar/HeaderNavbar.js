@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 import NavLogo from "../../Assets/images/logo.png";
 import auth from "../../firebase.init";
 import CustomLink from "../CustomLink";
+import Loading from "../Loading";
 
 const HeaderNavbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const logOut = () => {
         signOut(auth);
     };
+    if (loading) {
+        return <Loading></Loading>;
+    }
     return (
         <div className="headerNavbar">
             <Navbar bg="light" expand="lg" className="fixed-top">

@@ -11,7 +11,7 @@ const CustomLink = ({ children, to, ...props }) => {
                     fontSize: "16px",
                     fontFamily: "rubik",
                     padding: " 6px 12px",
-                    fontWeight: "300",
+                    fontWeight: "400",
                     textDecoration: "none",
                     color: match ? "white" : "black",
                     borderLeft: match ? "3px solid #ff7675" : "none",
