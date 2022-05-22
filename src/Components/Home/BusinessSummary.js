@@ -6,12 +6,12 @@ const BusinessSummary = () => {
     return (
         <div className="pb-3">
             <div className="container">
-                <div className="py-5">
+                <div className="py-lg-5 py-2">
                     <div className="product_content pt-5">
                         <p className="text-danger text-center fs-5">
                             USERS EXPECTATION
                         </p>
-                        <h1 className="text-center pb-1 w-50 w-sm-0 mx-auto">
+                        <h1 className="text-center pb-1 w-lg-50 w-sm-0 mx-auto">
                             Millions Business Trust Us
                         </h1>
                         <div className="divider mx-auto bg-danger"></div>

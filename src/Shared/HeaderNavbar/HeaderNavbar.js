@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import NavLogo from "../../Assets/images/logo.png";
 import auth from "../../firebase.init";
 import CustomLink from "../CustomLink";
@@ -20,9 +20,11 @@ const HeaderNavbar = () => {
         <div className="headerNavbar">
             <Navbar bg="light" expand="lg" className="fixed-top">
                 <Container className="py-2">
-                    <Navbar.Brand href="#">
-                        <img className="w-100" src={NavLogo} alt="" />
-                    </Navbar.Brand>
+                    <NavLink to="/">
+                        <Navbar.Brand>
+                            <img className="w-100" src={NavLogo} alt="" />
+                        </Navbar.Brand>
+                    </NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse
                         id="responsive-navbar-nav"
@@ -43,9 +45,8 @@ const HeaderNavbar = () => {
                             {user ? (
                                 <button
                                     onClick={logOut}
-                                    className="btn btn-outline border-0"
+                                    className="btn btn-outline border-0 text-start"
                                     to="/login"
-                                    href="#action2"
                                 >
                                     Log Out
                                 </button>

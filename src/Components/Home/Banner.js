@@ -15,8 +15,8 @@ const Banner = () => {
                                     Quality work. Trustable service. Dedicated
                                     team
                                 </p>
-                                <h1 className="fs-7">
-                                    We provide your Industrial solution
+                                <h1 className="fs-1">
+                                    We provide your <br /> Industrial solution
                                 </h1>
                                 <button className="banner_button btn btn-danger bg-gradient px-4 py-3 rounded-0">
                                     Our Services{" "}
