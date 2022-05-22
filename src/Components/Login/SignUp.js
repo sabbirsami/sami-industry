@@ -1,35 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import {
+    useCreateUserWithEmailAndPassword,
+    useSignInWithGoogle,
+    useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+    } = useForm();
+
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth);
 
     // CONDITION
     let errorMessage;
-    if (googleError) {
+    if (googleError || error) {
         errorMessage = (
             <p className="text-danger text-center m-0 pt-2">
                 <small>
-                    <i>{googleError?.message.split(":")[1]}</i>
+                    <i>
+                        {googleError?.message.split(":")[1]}
+                        {error.message.split(":")[1]}
+                    </i>
                 </small>
             </p>
         );
     }
-    if (googleLoading) {
+    if (googleLoading || loading) {
         return <Loading></Loading>;
     }
-    if (googleUser) {
-        console.log(googleUser);
+    if (googleUser || user) {
+        navigate("/");
     }
 
-    // const handleLogin = () => {
-    //     onSubmit={handleLogin}
-    // };
+    const onSubmit = async (data) => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        console.log(data);
+        await updateProfile({ displayName: data.name });
+    };
     return (
         <div className="pt-5">
             <div className="container">
@@ -37,14 +58,23 @@ const SignUp = () => {
                     <div className="p-lg-5">
                         <div className="m-lg-5">
                             <h1 className="text-center">Sign Up</h1>
-                            <Form>
+                            <Form onSubmit={handleSubmit(onSubmit)}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Your Name</Form.Label>
                                     <Form.Control
+                                        {...register("name", {
+                                            required: true,
+                                            maxLength: 20,
+                                        })}
                                         className="rounded-0"
                                         type="text"
                                         placeholder="Enter your name"
                                     />
+                                    {errors?.name?.type === "required" && (
+                                        <small className="text-danger ">
+                                            Name is required *
+                                        </small>
+                                    )}
                                 </Form.Group>
                                 <Form.Group
                                     className="mb-3"
@@ -52,10 +82,31 @@ const SignUp = () => {
                                 >
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control
+                                        {...register("email", {
+                                            required: {
+                                                value: true,
+                                                message: "Email is Required",
+                                            },
+                                            pattern: {
+                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                message:
+                                                    "Provide a valid Email",
+                                            },
+                                        })}
                                         className="rounded-0"
                                         type="email"
                                         placeholder="Enter email"
                                     />
+                                    {errors.email?.type === "required" && (
+                                        <span className="text-danger">
+                                            {errors.email.message}
+                                        </span>
+                                    )}
+                                    {errors.email?.type === "pattern" && (
+                                        <span className="text-danger">
+                                            {errors.email.message}
+                                        </span>
+                                    )}
                                 </Form.Group>
 
                                 <Form.Group
@@ -64,10 +115,31 @@ const SignUp = () => {
                                 >
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
+                                        {...register("password", {
+                                            required: {
+                                                value: true,
+                                                message: "Password is Required",
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message:
+                                                    "Must be 6 characters or longer",
+                                            },
+                                        })}
                                         className="rounded-0"
                                         type="password"
                                         placeholder="Password"
                                     />
+                                    {errors.password?.type === "required" && (
+                                        <span className="text-danger">
+                                            {errors?.password?.message}
+                                        </span>
+                                    )}
+                                    {errors.password?.type === "minLength" && (
+                                        <span className="text-danger">
+                                            {errors?.password?.message}
+                                        </span>
+                                    )}
                                 </Form.Group>
 
                                 <button
