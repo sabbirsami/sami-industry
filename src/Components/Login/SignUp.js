@@ -1,8 +1,35 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import Loading from "../../Shared/Loading";
 
 const SignUp = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
+
+    // CONDITION
+    let errorMessage;
+    if (googleError) {
+        errorMessage = (
+            <p className="text-danger text-center m-0 pt-2">
+                <small>
+                    <i>{googleError?.message.split(":")[1]}</i>
+                </small>
+            </p>
+        );
+    }
+    if (googleLoading) {
+        return <Loading></Loading>;
+    }
+    if (googleUser) {
+        console.log(googleUser);
+    }
+
+    // const handleLogin = () => {
+    //     onSubmit={handleLogin}
+    // };
     return (
         <div className="pt-5">
             <div className="container">
@@ -50,7 +77,8 @@ const SignUp = () => {
                                     Sign Up
                                 </button>
                             </Form>
-                            <p className="text-center pt-3">
+                            {errorMessage}
+                            <p className="text-center pt-3 m-0">
                                 Already have an account?{" "}
                                 <Link to="/login">Login</Link>
                             </p>
@@ -60,6 +88,7 @@ const SignUp = () => {
                                 <div></div>
                             </div>
                             <button
+                                onClick={() => signInWithGoogle()}
                                 type="submit"
                                 className="btn btn-outline-danger rounded-0 w-100 py-2"
                             >
