@@ -12,6 +12,7 @@ import MyProfile from "./Components/MyProfile/MyProfile";
 import MyOrders from "./Components/MyOrders/MyOrders";
 import AddReview from "./Components/AddReview/AddReview";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import AddProduct from "./Components/AddReview/AddProduct";
 
 function App() {
     return (
@@ -30,6 +31,10 @@ function App() {
                     <Route
                         path="myOrders"
                         element={<MyOrders></MyOrders>}
+                    ></Route>
+                    <Route
+                        path="addNewProduct"
+                        element={<AddProduct></AddProduct>}
                     ></Route>
                 </Route>
 
