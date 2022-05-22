@@ -16,58 +16,52 @@ const BusinessSummary = () => {
                         </h1>
                         <div className="divider mx-auto bg-danger"></div>
                     </div>
-                    <div className="business_section py-5 shadow">
-                        <div className="business_content py-4 shadow ">
+                    <div className="business_section py-5 ">
+                        <div className="business_content py-4  ">
                             <div className="row">
                                 <div className="col-lg-4">
-                                    <div className="p-2">
-                                        <div className="justify-content-center text-center">
-                                            <FontAwesomeIcon
-                                                icon={faFlag}
-                                                style={{
-                                                    color: "#d63031",
-                                                    fontSize: "70px",
-                                                }}
-                                            />
-                                            <h1 className="pt-2 m-0">32+</h1>
-                                            <p className="m-0 p-0 text-danger">
-                                                Countries
-                                            </p>
-                                        </div>
+                                    <div className="justify-content-center text-center">
+                                        <FontAwesomeIcon
+                                            icon={faFlag}
+                                            style={{
+                                                color: "#d63031",
+                                                fontSize: "70px",
+                                            }}
+                                        />
+                                        <h1 className="pt-4 m-0">32+</h1>
+                                        <p className="m-0 p-0 text-danger">
+                                            Countries
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
-                                    <div className="p-2">
-                                        <div className="justify-content-center text-center">
-                                            <FontAwesomeIcon
-                                                icon={faThumbsUp}
-                                                style={{
-                                                    color: "#d63031",
-                                                    fontSize: "70px",
-                                                }}
-                                            />
-                                            <h1 className="pt-2 m-0">432+</h1>
-                                            <p className="m-0 p-0 text-danger">
-                                                Feedbacks
-                                            </p>
-                                        </div>
+                                    <div className="justify-content-center text-center">
+                                        <FontAwesomeIcon
+                                            icon={faThumbsUp}
+                                            style={{
+                                                color: "#d63031",
+                                                fontSize: "70px",
+                                            }}
+                                        />
+                                        <h1 className="pt-4 m-0">432+</h1>
+                                        <p className="m-0 p-0 text-danger">
+                                            Feedbacks
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
-                                    <div className="p-2">
-                                        <div className="justify-content-center text-center">
-                                            <FontAwesomeIcon
-                                                icon={faUsers}
-                                                style={{
-                                                    color: "#d63031",
-                                                    fontSize: "70px",
-                                                }}
-                                            />
-                                            <h1 className="pt-2 m-0">273+</h1>
-                                            <p className="m-0 p-0 text-danger">
-                                                Happy Clients
-                                            </p>
-                                        </div>
+                                    <div className="justify-content-center text-center">
+                                        <FontAwesomeIcon
+                                            icon={faUsers}
+                                            style={{
+                                                color: "#d63031",
+                                                fontSize: "70px",
+                                            }}
+                                        />
+                                        <h1 className="pt-4 m-0">273+</h1>
+                                        <p className="m-0 p-0 text-danger">
+                                            Happy Clients
+                                        </p>
                                     </div>
                                 </div>
                             </div>
