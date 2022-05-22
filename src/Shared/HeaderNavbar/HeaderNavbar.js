@@ -39,9 +39,6 @@ const HeaderNavbar = () => {
                             <CustomLink to="/purchase" href="#action1">
                                 Purchase
                             </CustomLink>
-                            <CustomLink to="/myOrders" href="#action1">
-                                My Orders
-                            </CustomLink>
 
                             {user ? (
                                 <button

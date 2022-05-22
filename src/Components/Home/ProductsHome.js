@@ -30,7 +30,7 @@ const ProductsHome = () => {
                                 <p className="p-0 m-0 w-75 mx-auto">
                                     {" "}
                                     <img
-                                        className="w-25"
+                                        className="w-25 downArrow"
                                         src={DownArrow}
                                         alt=""
                                     />
