@@ -1,8 +1,35 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../Shared/Loading";
 
 const Login = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
+
+    // CONDITION
+    let errorMessage;
+    if (googleError) {
+        errorMessage = (
+            <p className="text-danger text-center m-0 pt-2">
+                <small>
+                    <i>{googleError?.message.split(":")[1]}</i>
+                </small>
+            </p>
+        );
+    }
+    if (googleLoading) {
+        return <Loading></Loading>;
+    }
+    if (googleUser) {
+        console.log(googleUser);
+    }
+
+    // const handleLogin = () => {
+    //     onSubmit={handleLogin}
+    // };
     return (
         <div>
             <div className="container">
@@ -42,16 +69,18 @@ const Login = () => {
                                     Login
                                 </button>
                             </Form>
-                            <p className="text-center pt-3">
+                            {errorMessage}
+                            <p className="text-center pt-3 m-0">
                                 Dont have any account?{" "}
                                 <Link to="/signup">Sign Up</Link>
                             </p>
-                            <div className="divide d-flex align-items-center pb-3">
+                            <div className="divide d-flex align-items-center">
                                 <div></div>
                                 <p className="pt-3">OR</p>
                                 <div></div>
                             </div>
                             <button
+                                onClick={() => signInWithGoogle()}
                                 type="submit"
                                 className="btn btn-outline-danger rounded-0 w-100 py-2"
                             >
