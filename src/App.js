@@ -19,6 +19,7 @@ import Order from "./Components/Home/Order";
 import RequireAuth from "./Shared/RequireAuth";
 import ManageUser from "./Components/Dashboard/ManageUser";
 import RequireAdmin from "./Shared/RequireAdmin";
+import ManageReview from "./Components/Dashboard/ManageReview";
 
 function App() {
     return (
@@ -68,6 +69,10 @@ function App() {
                                 <ManageProduct></ManageProduct>
                             </RequireAdmin>
                         }
+                    ></Route>
+                    <Route
+                        path="manageReview"
+                        element={<ManageReview></ManageReview>}
                     ></Route>
                 </Route>
 
