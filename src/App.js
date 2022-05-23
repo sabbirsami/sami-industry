@@ -13,6 +13,7 @@ import MyOrders from "./Components/MyOrders/MyOrders";
 import AddReview from "./Components/AddReview/AddReview";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import AddProduct from "./Components/AddReview/AddProduct";
+import ManageProduct from "./Components/Dashboard/ManageProduct";
 
 function App() {
     return (
@@ -35,6 +36,10 @@ function App() {
                     <Route
                         path="addNewProduct"
                         element={<AddProduct></AddProduct>}
+                    ></Route>
+                    <Route
+                        path="manageProducts"
+                        element={<ManageProduct></ManageProduct>}
                     ></Route>
                 </Route>
 
