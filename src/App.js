@@ -14,6 +14,7 @@ import AddReview from "./Components/AddReview/AddReview";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import AddProduct from "./Components/AddReview/AddProduct";
 import ManageProduct from "./Components/Dashboard/ManageProduct";
+import PageNotFount from "./Shared/PageNotFount";
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
 
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
+                <Route path="*" element={<PageNotFount></PageNotFount>}></Route>
             </Routes>
             <Footer></Footer>
             <Toaster position="top-center" reverseOrder={false} />
