@@ -4,7 +4,7 @@ import React from "react";
 
 const BusinessSummary = () => {
     return (
-        <div className="pb-3">
+        <div className="pb-3 businessSummary">
             <div className="container">
                 <div className="py-lg-4 py-2">
                     <div className="product_content pt-5">
