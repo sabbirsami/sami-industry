@@ -98,14 +98,14 @@ const SignUp = () => {
                                         placeholder="Enter email"
                                     />
                                     {errors.email?.type === "required" && (
-                                        <span className="text-danger">
+                                        <small className="text-danger">
                                             {errors.email.message}
-                                        </span>
+                                        </small>
                                     )}
                                     {errors.email?.type === "pattern" && (
-                                        <span className="text-danger">
+                                        <small className="text-danger">
                                             {errors.email.message}
-                                        </span>
+                                        </small>
                                     )}
                                 </Form.Group>
 
