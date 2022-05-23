@@ -35,7 +35,7 @@ const ManageProduct = () => {
     };
     return (
         <div>
-            <div className="p-3">
+            <div className="p-3 table-responsive">
                 <h2 className="pb-3">Manage Product</h2>
                 <Table bordered hover>
                     <thead>

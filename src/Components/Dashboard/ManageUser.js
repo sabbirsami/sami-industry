@@ -10,14 +10,34 @@ const ManageUser = () => {
         isLoading,
         refetch,
     } = useQuery("products", () =>
-        fetch("http://localhost:5000/user").then((res) => res.json())
+        fetch(`http://localhost:5000/user`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+        }).then((res) => res.json())
     );
 
     if (isLoading) {
         return <Loading></Loading>;
     }
+
+    const makeAdmin = (email) => {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
+            method: "PUT",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                // toast.success(`Successfully deleted`, {
+                //     duration: 3000,
+                // });
+            });
+    };
     const handleDelete = (id) => {
-        console.log(id);
         fetch(`http://localhost:5000/user/${id}`, {
             method: "DELETE",
             headers: {
@@ -26,7 +46,6 @@ const ManageUser = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 toast.success(`Successfully deleted`, {
                     duration: 3000,
                 });
@@ -34,8 +53,8 @@ const ManageUser = () => {
             });
     };
     return (
-        <div>
-            <div className="p-3">
+        <div className="">
+            <div className="p-lg-3">
                 <h2 className="pb-3">Manage Product</h2>
                 <Table bordered hover>
                     <thead>
@@ -52,9 +71,20 @@ const ManageUser = () => {
                                 <td>{index + 1}</td>
                                 <td>{user.email}</td>
                                 <td className="p-0">
-                                    <button className="btn btn-success w-100 rounded-0 m-0">
-                                        Make Admin
-                                    </button>
+                                    {user.role ? (
+                                        <button class="btn w-100 alert-success rounded-0">
+                                            Admin
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() =>
+                                                makeAdmin(user.email)
+                                            }
+                                            className="btn btn-success w-100 rounded-0 m-0"
+                                        >
+                                            Make Admin
+                                        </button>
+                                    )}
                                 </td>
                                 <td className="p-0">
                                     <button
