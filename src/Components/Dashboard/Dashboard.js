@@ -16,10 +16,10 @@ const Dashboard = () => {
                     <Container fluid className="remove_align_item">
                         <div className="col-lg-2 d-lg-block d-none text-end">
                             <Navbar.Brand
-                                className="py-5 fs-1 m-0 fw-semi-bold "
+                                className="py-5 fs-2 m-0 fw-semi-bold "
                                 href="#"
                             >
-                                Dashboard
+                                DASHBOARD
                             </Navbar.Brand>
                             <hr />
 

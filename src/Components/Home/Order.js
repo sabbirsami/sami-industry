@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
@@ -34,66 +34,106 @@ const Order = () => {
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="px-4">
-                            <Form onSubmit={handleSubmit(onSubmit)}>
-                                {/* PRODUCT NAME  */}
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Your Name</Form.Label>
-                                    <Form.Control
-                                        {...register("name", {
-                                            required: true,
-                                        })}
-                                        className="rounded-0"
-                                        type="text"
-                                        value={user.displayName}
-                                        readOnly
-                                        placeholder="Enter name"
-                                    />
-                                </Form.Group>
+                            <Form>
+                                <Row className="mb-3">
+                                    <Form.Group as={Col}>
+                                        <Form.Label>Your Name</Form.Label>
+                                        <Form.Control
+                                            {...register("name", {
+                                                required: true,
+                                            })}
+                                            className="rounded-0"
+                                            type="text"
+                                            value={user.displayName}
+                                            readOnly
+                                            placeholder="Your name"
+                                        />
+                                    </Form.Group>
 
-                                {/* EMAIL */}
+                                    <Form.Group
+                                        as={Col}
+                                        controlId="formGridEmail"
+                                    >
+                                        <Form.Label>Your Email</Form.Label>
+                                        <Form.Control
+                                            {...register("email", {
+                                                required: true,
+                                            })}
+                                            value={user?.email || ""}
+                                            readOnly
+                                            required
+                                            className="rounded-0"
+                                            type="email"
+                                            placeholder="Enter email"
+                                        />
+                                    </Form.Group>
+                                </Row>
+
                                 <Form.Group
                                     className="mb-3"
-                                    controlId="formBasicEmail"
+                                    controlId="formGridAddress1"
                                 >
-                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Label>Address</Form.Label>
                                     <Form.Control
-                                        {...register("email", {
+                                        {...register("address", {
                                             required: true,
                                         })}
-                                        value={user?.email || ""}
-                                        readOnly
-                                        required
+                                        type="text"
+                                        placeholder="1234 Main St"
                                         className="rounded-0"
-                                        type="email"
-                                        placeholder="Enter email"
                                     />
                                 </Form.Group>
 
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Quantity</Form.Label>
-                                    <Form.Control
-                                        {...register("quantity", {
-                                            required: true,
-                                            min: 1000,
-                                            max: 100000,
-                                        })}
-                                        className="rounded-0"
-                                        type="number"
-                                        placeholder="Enter Quantity"
-                                    />
-                                    {errors?.quantity?.type === "pattern" && (
-                                        <small className="text-danger">
-                                            {errors?.quantity.message}
-                                        </small>
-                                    )}
-                                </Form.Group>
+                                <Row className="mb-3">
+                                    <Form.Group as={Col} className="mb-3">
+                                        <Form.Label>Quantity</Form.Label>
+                                        <Form.Control
+                                            {...register("quantity", {
+                                                required: true,
+                                                min: 1000,
+                                                max: 100000,
+                                            })}
+                                            className="rounded-0"
+                                            type="number"
+                                            placeholder="Enter Quantity"
+                                        />
+                                    </Form.Group>
+                                    <Form.Group
+                                        as={Col}
+                                        controlId="formGridCity"
+                                    >
+                                        <Form.Label>City</Form.Label>
+                                        <Form.Control
+                                            {...register("city", {
+                                                required: true,
+                                            })}
+                                            type="text"
+                                            className="rounded-0"
+                                        />
+                                    </Form.Group>
 
-                                <button
-                                    type="submit"
+                                    <Form.Group
+                                        as={Col}
+                                        controlId="formGridZip"
+                                    >
+                                        <Form.Label>Zip</Form.Label>
+                                        <Form.Control
+                                            {...register("zip", {
+                                                required: true,
+                                            })}
+                                            type="number"
+                                            className="rounded-0"
+                                        />
+                                    </Form.Group>
+                                </Row>
+
+                                <Button
                                     className="btn btn-danger rounded-0 w-100 py-2"
+                                    variant="primary"
+                                    type="submit"
                                 >
-                                    Order
-                                </button>
+                                    Submit
+                                </Button>
                             </Form>
                         </div>
                     </div>
