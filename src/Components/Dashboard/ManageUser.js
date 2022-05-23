@@ -1,7 +1,9 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 
 const ManageUser = () => {
@@ -29,12 +31,24 @@ const ManageUser = () => {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.status === 403) {
+                    toast.success(`Failed to make an admin`, {
+                        duration: 3000,
+                    });
+                    signOut(auth);
+                    localStorage.removeItem("accessToken");
+                }
+                return res.json();
+            })
             .then((data) => {
                 console.log(data);
-                // toast.success(`Successfully deleted`, {
-                //     duration: 3000,
-                // });
+                if (data.modifiedCount) {
+                    toast.success(`Make Admin Successfully `, {
+                        duration: 3000,
+                    });
+                    refetch();
+                }
             });
     };
     const handleDelete = (id) => {
@@ -72,7 +86,7 @@ const ManageUser = () => {
                                 <td>{user.email}</td>
                                 <td className="p-0">
                                     {user.role ? (
-                                        <button class="btn w-100 alert-success rounded-0">
+                                        <button class="btn w-100 alert-success text-success disabled rounded-0">
                                             Admin
                                         </button>
                                     ) : (
