@@ -18,6 +18,7 @@ import PageNotFount from "./Shared/PageNotFount";
 import Order from "./Components/Home/Order";
 import RequireAuth from "./Shared/RequireAuth";
 import ManageUser from "./Components/Dashboard/ManageUser";
+import RequireAdmin from "./Shared/RequireAdmin";
 
 function App() {
     return (
@@ -46,15 +47,27 @@ function App() {
                     ></Route>
                     <Route
                         path="addNewProduct"
-                        element={<AddProduct></AddProduct>}
+                        element={
+                            <RequireAdmin>
+                                <AddProduct></AddProduct>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="manageUser"
-                        element={<ManageUser></ManageUser>}
+                        element={
+                            <RequireAdmin>
+                                <ManageUser></ManageUser>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="manageProducts"
-                        element={<ManageProduct></ManageProduct>}
+                        element={
+                            <RequireAdmin>
+                                <ManageProduct></ManageProduct>
+                            </RequireAdmin>
+                        }
                     ></Route>
                 </Route>
 
