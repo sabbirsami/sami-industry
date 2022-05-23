@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
     useSignInWithEmailAndPassword,
     useSignInWithGoogle,
@@ -10,6 +10,8 @@ import Loading from "../../Shared/Loading";
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -36,8 +38,7 @@ const Login = () => {
         return <Loading></Loading>;
     }
     if (googleUser || user) {
-        console.log(googleUser);
-        navigate("/");
+        navigate(from, { replace: true });
     }
     return (
         <div>

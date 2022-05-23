@@ -16,6 +16,7 @@ import AddProduct from "./Components/AddReview/AddProduct";
 import ManageProduct from "./Components/Dashboard/ManageProduct";
 import PageNotFount from "./Shared/PageNotFount";
 import Order from "./Components/Home/Order";
+import RequireAuth from "./Shared/RequireAuth";
 
 function App() {
     return (
@@ -24,7 +25,14 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
-                <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+                <Route
+                    path="/dashboard"
+                    element={
+                        <RequireAuth>
+                            <Dashboard></Dashboard>
+                        </RequireAuth>
+                    }
+                >
                     <Route index element={<MyProfile></MyProfile>}></Route>
                     <Route
                         path="addReview"
@@ -47,7 +55,11 @@ function App() {
 
                 <Route
                     path="/product/:productId"
-                    element={<Order></Order>}
+                    element={
+                        <RequireAuth>
+                            <Order></Order>
+                        </RequireAuth>
+                    }
                 ></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>

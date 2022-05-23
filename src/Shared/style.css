@@ -82,6 +82,10 @@ body {
     height: 40px;
     width: auto;
 }
+.user_photo {
+    width: 300px;
+    height: auto;
+}
 /* BUSINESS SECTION  */
 .divider {
     height: 2px;

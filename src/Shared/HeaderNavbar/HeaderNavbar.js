@@ -55,11 +55,13 @@ const HeaderNavbar = () => {
                                     Login
                                 </CustomLink>
                             )}
-                            <Link to="/dashboard">
-                                <button className="btn btn-outline-dark rounded-0">
-                                    Dashboard
-                                </button>
-                            </Link>
+                            {user && (
+                                <Link to="/dashboard">
+                                    <button className="btn btn-outline-dark rounded-0">
+                                        Dashboard
+                                    </button>
+                                </Link>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
