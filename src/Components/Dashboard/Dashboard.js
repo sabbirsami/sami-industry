@@ -1,9 +1,14 @@
 import React from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../Hooks/useAdmin";
 import CustomLink from "../../Shared/CustomLink";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     return (
         <div className="pt-5 mt-3">
             {["sm"].map((expand) => (
@@ -38,12 +43,14 @@ const Dashboard = () => {
                                         >
                                             My Profile
                                         </CustomLink>
-                                        <CustomLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/manageProducts"
-                                        >
-                                            Manage Products
-                                        </CustomLink>
+                                        {admin && (
+                                            <CustomLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/manageProducts"
+                                            >
+                                                Manage Products
+                                            </CustomLink>
+                                        )}
 
                                         <CustomLink
                                             className="d-block mt-2"
@@ -51,18 +58,22 @@ const Dashboard = () => {
                                         >
                                             Add Review
                                         </CustomLink>
-                                        <CustomLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/addNewProduct"
-                                        >
-                                            Add New Product
-                                        </CustomLink>
-                                        <CustomLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/manageUser"
-                                        >
-                                            Manage Users
-                                        </CustomLink>
+                                        {admin && (
+                                            <CustomLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/addNewProduct"
+                                            >
+                                                Add New Product
+                                            </CustomLink>
+                                        )}
+                                        {admin && (
+                                            <CustomLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/manageUser"
+                                            >
+                                                Manage Users
+                                            </CustomLink>
+                                        )}
 
                                         <CustomLink
                                             className="d-block mt-2"
