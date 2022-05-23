@@ -12,6 +12,7 @@ const HeaderNavbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const logOut = () => {
         signOut(auth);
+        localStorage.removeItem("accessToken");
     };
     if (loading) {
         return <Loading></Loading>;
@@ -35,12 +36,8 @@ const HeaderNavbar = () => {
                             style={{ maxHeight: "100px" }}
                             navbarScroll
                         >
-                            <CustomLink to="/" href="#action1">
-                                Home
-                            </CustomLink>
-                            <CustomLink to="/purchase" href="#action1">
-                                Purchase
-                            </CustomLink>
+                            <CustomLink to="/">Home</CustomLink>
+                            <CustomLink to="/products">Products</CustomLink>
 
                             {user ? (
                                 <button
