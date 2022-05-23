@@ -1,7 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
     const {
@@ -15,6 +15,11 @@ const Product = ({ product }) => {
         supplier,
         minimumOrderQuantity,
     } = product;
+
+    const navigate = useNavigate();
+    const navigateToPurchase = (id) => {
+        navigate(`/product/${id}`);
+    };
     return (
         <div className="col-lg-4">
             <div className="py-3">
@@ -36,8 +41,8 @@ const Product = ({ product }) => {
                         <p class="card-text">
                             <small>{about}</small>
                         </p>
-                        <Link
-                            to="/purchase"
+                        <button
+                            onClick={() => navigateToPurchase(product._id)}
                             class="btn btn-outline-dark rounded-0"
                         >
                             Order Now{" "}
@@ -48,7 +53,7 @@ const Product = ({ product }) => {
                                     paddingLeft: "10px",
                                 }}
                             />
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>
