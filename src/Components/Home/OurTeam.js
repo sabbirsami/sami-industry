@@ -6,7 +6,7 @@ import team4 from "../../Assets/images/team/xteam-4.jpg";
 
 const OurTeam = () => {
     return (
-        <div className="partner_section_bg pb-5">
+        <div className=" pb-5">
             <div className="container pb-5">
                 <div className="row py-lg-5">
                     <div className="team_doc text-center py-5">
