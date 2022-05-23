@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ const Login = () => {
         useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
+
+    const [token] = useToken(googleUser || user);
 
     // CONDITION
     let errorMessage;
@@ -37,7 +40,7 @@ const Login = () => {
     if (googleLoading || loading) {
         return <Loading></Loading>;
     }
-    if (googleUser || user) {
+    if (token) {
         navigate(from, { replace: true });
     }
     return (

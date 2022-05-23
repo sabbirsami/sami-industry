@@ -57,6 +57,12 @@ const Dashboard = () => {
                                         >
                                             Add New Product
                                         </CustomLink>
+                                        <CustomLink
+                                            className="d-block mt-2"
+                                            to="/dashboard/manageUser"
+                                        >
+                                            Manage Users
+                                        </CustomLink>
 
                                         <CustomLink
                                             className="d-block mt-2"

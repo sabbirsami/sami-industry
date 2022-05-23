@@ -17,6 +17,7 @@ import ManageProduct from "./Components/Dashboard/ManageProduct";
 import PageNotFount from "./Shared/PageNotFount";
 import Order from "./Components/Home/Order";
 import RequireAuth from "./Shared/RequireAuth";
+import ManageUser from "./Components/Dashboard/ManageUser";
 
 function App() {
     return (
@@ -46,6 +47,10 @@ function App() {
                     <Route
                         path="addNewProduct"
                         element={<AddProduct></AddProduct>}
+                    ></Route>
+                    <Route
+                        path="manageUser"
+                        element={<ManageUser></ManageUser>}
                     ></Route>
                     <Route
                         path="manageProducts"
