@@ -1,11 +1,35 @@
 import React from "react";
 import { Table } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { useQuery } from "react-query";
+import Loading from "../../Shared/Loading";
 
 const ManageProduct = () => {
-    const { data: products, isLoading } = useQuery("products", () =>
+    const {
+        data: products,
+        isLoading,
+        refetch,
+    } = useQuery("products", () =>
         fetch("http://localhost:5000/product").then((res) => res.json())
     );
+
+    if (isLoading) {
+        return <Loading></Loading>;
+    }
+    const handleDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/product/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                toast.success(`Successfully deleted`, {
+                    duration: 3000,
+                });
+                refetch();
+            });
+    };
     return (
         <div>
             <div className="p-3">
@@ -26,7 +50,12 @@ const ManageProduct = () => {
                                 <td>{product.name}</td>
                                 <td>$ {product.price}</td>
                                 <td className="p-0">
-                                    <button className="btn btn-danger w-100 rounded-0 m-0">
+                                    <button
+                                        onClick={() =>
+                                            handleDelete(product._id)
+                                        }
+                                        className="btn btn-danger w-100 rounded-0 m-0"
+                                    >
                                         Delete Product
                                     </button>
                                 </td>
