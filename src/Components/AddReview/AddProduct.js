@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const AddProduct = () => {
+    const imageUploadKey = "4890ef86cb137afcf283d9e2b184076a";
     const {
         register,
         reset,
@@ -12,26 +13,46 @@ const AddProduct = () => {
     } = useForm();
 
     const onSubmit = async (data) => {
-        fetch("http://localhost:5000/product", {
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageUploadKey}`;
+        fetch(url, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+            body: formData,
         })
             .then((response) => response.json())
             .then((result) => {
-                if (result) {
-                    toast.success("Successfully added");
-                    reset();
+                if (result.success) {
+                    const image = result.data.url;
+                    const product = {
+                        name: data.name,
+                        price: data.price,
+                        email: data.email,
+                        about: data.about,
+                        quantity: data.quantity,
+                        minimumOrderQuantity: data.minimumOrderQuantity,
+                        img: image,
+                    };
+                    fetch("http://localhost:5000/product", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(product),
+                    })
+                        .then((response) => response.json())
+                        .then((inserted) => {
+                            if (inserted.insertedId) {
+                                toast.success("Successfully added");
+                                reset();
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error:", error);
+                        });
                 }
-
-                console.log("Success:", result);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
             });
-        reset();
     };
 
     return (
@@ -63,7 +84,7 @@ const AddProduct = () => {
                                             required: true,
                                         })}
                                         className="rounded-0"
-                                        type="text"
+                                        type="number"
                                         placeholder="Enter name"
                                     />
                                 </Form.Group>
@@ -125,7 +146,7 @@ const AddProduct = () => {
                                     <Form.Label>Product Image</Form.Label>
                                     <Form.Control
                                         className="rounded-0"
-                                        {...register("img", {
+                                        {...register("image", {
                                             required: true,
                                         })}
                                         type="file"
