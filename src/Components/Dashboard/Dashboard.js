@@ -43,27 +43,36 @@ const Dashboard = () => {
                                         >
                                             My Profile
                                         </CustomLink>
-                                        {admin && (
-                                            <CustomLink
-                                                className="d-block mt-2"
-                                                to="/dashboard/manageProducts"
-                                            >
-                                                Manage Products
-                                            </CustomLink>
-                                        )}
-
+                                        <CustomLink
+                                            className="d-block mt-2"
+                                            to="/dashboard/myOrders"
+                                        >
+                                            My Order
+                                        </CustomLink>
+                                        {/* {admin ? (
+                                            ""
+                                        ) : ( */}
                                         <CustomLink
                                             className="d-block mt-2"
                                             to="/dashboard/addReview"
                                         >
                                             Add Review
                                         </CustomLink>
+                                        {/* )} */}
                                         {admin && (
                                             <CustomLink
                                                 className="d-block mt-2"
                                                 to="/dashboard/addNewProduct"
                                             >
                                                 Add New Product
+                                            </CustomLink>
+                                        )}
+                                        {admin && (
+                                            <CustomLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/manageProducts"
+                                            >
+                                                Manage Products
                                             </CustomLink>
                                         )}
                                         {admin && (
@@ -82,13 +91,6 @@ const Dashboard = () => {
                                                 Manage Users
                                             </CustomLink>
                                         )}
-
-                                        <CustomLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/myOrders"
-                                        >
-                                            My Order
-                                        </CustomLink>
                                     </Nav>
                                 </Offcanvas.Body>
                             </Navbar.Offcanvas>
