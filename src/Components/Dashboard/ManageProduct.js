@@ -17,7 +17,6 @@ const ManageProduct = () => {
         return <Loading></Loading>;
     }
     const handleDelete = (id) => {
-        console.log(id);
         fetch(`http://localhost:5000/product/${id}`, {
             method: "DELETE",
             headers: {
@@ -26,7 +25,6 @@ const ManageProduct = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 toast.success(`Successfully deleted`, {
                     duration: 3000,
                 });

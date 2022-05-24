@@ -43,7 +43,7 @@ const Order = () => {
             userEmail: data.email,
             productImg: product.img,
         };
-        console.log(order);
+
         fetch("http://localhost:5000/order", {
             method: "POST",
             headers: {
@@ -130,9 +130,9 @@ const Order = () => {
                                             {...register("quantity", {
                                                 required: true,
                                                 min: {
-                                                    value: 1000,
+                                                    value: minimumOrderQuantity,
                                                     message:
-                                                        "Quantity must be more then 1000",
+                                                        "Quantity must be more then Minimum order quantity",
                                                 },
                                                 max: {
                                                     value: quantity,
@@ -199,14 +199,14 @@ const Order = () => {
                     </div>
                     <div className="col-lg-4">
                         <div className="py-3">
-                            <div class="card rounded-0">
+                            <div className="card rounded-0">
                                 <img
                                     src={img}
-                                    class="card-img-top rounded-0"
+                                    className="card-img-top rounded-0"
                                     alt="..."
                                 />
-                                <div class="card-body">
-                                    <h5 class="card-title">{name}</h5>
+                                <div className="card-body">
+                                    <h5 className="card-title">{name}</h5>
                                     <p>
                                         <span>
                                             <b>Price : ${price},</b>
@@ -221,7 +221,7 @@ const Order = () => {
                                             {minimumOrderQuantity}
                                         </small>
                                     </p>
-                                    <p class="card-text">
+                                    <p className="card-text">
                                         <small>{about}</small>
                                     </p>
                                 </div>

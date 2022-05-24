@@ -16,7 +16,6 @@ const EditProfile = () => {
         console.log(updateError);
     }
     const onSubmit = async (data) => {
-        console.log(data);
         await updateProfile({
             displayName: data.name,
         });

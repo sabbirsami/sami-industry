@@ -112,21 +112,49 @@ const AddProduct = () => {
                                     <Form.Control
                                         {...register("minimumOrderQuantity", {
                                             required: true,
-                                            min: 1000,
-                                            max: 100000,
+                                            min: {
+                                                value: 1000,
+                                                message:
+                                                    "Minimum order quantity - 1000",
+                                            },
+                                            max: {
+                                                value: 100000,
+                                                message:
+                                                    "Max Quantity - 100000",
+                                            },
                                         })}
                                         className="rounded-0"
                                         type="number"
                                         placeholder="Minimum order quantity"
                                     />
                                 </Form.Group>
+                                <small>
+                                    {errors.quantity?.type === "min" && (
+                                        <span className=" text-danger">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                    {errors.quantity?.type === "max" && (
+                                        <span className=" text-danger">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                </small>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Max Quantity</Form.Label>
                                     <Form.Control
                                         {...register("quantity", {
                                             required: true,
-                                            min: 1000,
-                                            max: 100000,
+                                            min: {
+                                                value: 1000,
+                                                message:
+                                                    "Minimum order quantity - 1000",
+                                            },
+                                            max: {
+                                                value: 100000,
+                                                message:
+                                                    "Max Quantity - 100000",
+                                            },
                                         })}
                                         className="rounded-0"
                                         type="number"
@@ -138,6 +166,18 @@ const AddProduct = () => {
                                         </small>
                                     )}
                                 </Form.Group>
+                                <small>
+                                    {errors.quantity?.type === "min" && (
+                                        <span className=" text-danger">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                    {errors.quantity?.type === "max" && (
+                                        <span className=" text-danger">
+                                            {errors.quantity.message}
+                                        </span>
+                                    )}
+                                </small>
                                 {/* IMAGE        */}
                                 <Form.Group
                                     controlId="formFile"

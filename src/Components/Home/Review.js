@@ -16,8 +16,6 @@ const Review = () => {
             .then((data) => setReviews(data));
     }, []);
 
-    console.log(reviews);
-
     return (
         <div className="review_section_bg text-white">
             <div className="container">

@@ -23,10 +23,14 @@ const Product = ({ product }) => {
     return (
         <div className="col-lg-4">
             <div className="py-3">
-                <div class="card rounded-0">
-                    <img src={img} class="card-img-top rounded-0" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">{name}</h5>
+                <div className="card rounded-0">
+                    <img
+                        src={img}
+                        className="card-img-top rounded-0"
+                        alt="..."
+                    />
+                    <div className="card-body">
+                        <h5 className="card-title">{name}</h5>
                         <p>
                             <span>
                                 <b>Price : ${price},</b>
@@ -38,12 +42,12 @@ const Product = ({ product }) => {
                                 Minimum order quantity: {minimumOrderQuantity}
                             </small>
                         </p>
-                        <p class="card-text">
+                        <p className="card-text">
                             <small>{about}</small>
                         </p>
                         <button
                             onClick={() => navigateToPurchase(product._id)}
-                            class="btn btn-outline-dark rounded-0"
+                            className="btn btn-outline-dark rounded-0"
                         >
                             Order Now{" "}
                             <FontAwesomeIcon

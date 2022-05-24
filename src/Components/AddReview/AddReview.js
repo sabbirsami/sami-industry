@@ -16,7 +16,6 @@ const AddReview = () => {
     const { displayName, email, photoURL } = user;
 
     const onSubmit = async (data) => {
-        console.log(data);
         fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
@@ -30,8 +29,6 @@ const AddReview = () => {
                     toast.success("Successfully added");
                     reset();
                 }
-
-                console.log("Success:", result);
             })
             .catch((error) => {
                 console.error("Error:", error);

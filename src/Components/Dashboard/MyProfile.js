@@ -6,9 +6,7 @@ import CustomLink from "../../Shared/CustomLink";
 
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
-    console.log(user);
     const { displayName, email, photoURL } = user;
-    console.log(photoURL);
 
     return (
         <div>
@@ -17,18 +15,18 @@ const MyProfile = () => {
                     <h1 className="text-center">My Profile</h1>
                     <div className="divider mx-auto bg-danger mb-4"></div>
                     <div className="row ">
-                        <div class=" col-lg-3">
+                        <div className=" col-lg-3">
                             <div className="user_photo p-4 ms-lg-auto">
                                 <img
                                     src={photoURL || blankProfile}
-                                    class="card-img-top w-100 rounded-0"
+                                    className="card-img-top w-100 rounded-0"
                                     alt="..."
                                 />
                             </div>
                         </div>
                         <div className="col-lg-9">
-                            <div class="card-body me-lg-auto">
-                                <h5 class="card-title">{}</h5>
+                            <div className="card-body me-lg-auto">
+                                <h5 className="card-title">{}</h5>
                                 <div className="name_field position-relative">
                                     <p className="m-0">
                                         <b>
@@ -69,7 +67,7 @@ const MyProfile = () => {
                                     </p>
                                     <p>{}</p>
                                 </div>
-                                <p class="card-text">
+                                <p className="card-text">
                                     <small>{}</small>
                                 </p>
                             </div>

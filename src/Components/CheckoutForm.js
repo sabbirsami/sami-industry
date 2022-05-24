@@ -11,7 +11,7 @@ const CheckoutForm = ({ order }) => {
     const [clientSecret, setClientSecret] = useState("");
 
     const { _id, totalPrice, userName, userEmail } = order;
-    console.log(totalPrice, userName, userEmail);
+
     useEffect(() => {
         fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
@@ -87,7 +87,6 @@ const CheckoutForm = ({ order }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     setProcessing(false);
-                    console.log(data);
                 });
         }
     };

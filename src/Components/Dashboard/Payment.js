@@ -54,14 +54,14 @@ const Payment = () => {
                         </div>
                         <div className="col-lg-4">
                             <div className="py-3">
-                                <div class="card rounded-0">
+                                <div className="card rounded-0">
                                     <img
                                         src={productImg}
-                                        class="card-img-top rounded-0"
+                                        className="card-img-top rounded-0"
                                         alt="..."
                                     />
-                                    <div class="card-body">
-                                        <h5 class="card-title">
+                                    <div className="card-body">
+                                        <h5 className="card-title">
                                             {productName}
                                         </h5>
                                         <p>
@@ -81,7 +81,7 @@ const Payment = () => {
                                                 Minimum order quantity: {}
                                             </small>
                                         </p>
-                                        <p class="card-text">
+                                        <p className="card-text">
                                             <small>{}</small>
                                         </p>
                                     </div>

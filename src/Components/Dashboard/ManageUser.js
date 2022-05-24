@@ -42,7 +42,6 @@ const ManageUser = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
                 if (data.modifiedCount) {
                     toast.success(`Make Admin Successfully `, {
                         duration: 3000,
@@ -86,7 +85,7 @@ const ManageUser = () => {
                                 <td>{user.email}</td>
                                 <td className="p-0">
                                     {user.role ? (
-                                        <button class="btn w-100 alert-success text-success disabled rounded-0">
+                                        <button className="btn w-100 alert-success text-success disabled rounded-0">
                                             Admin
                                         </button>
                                     ) : (

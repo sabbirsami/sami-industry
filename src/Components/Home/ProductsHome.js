@@ -24,7 +24,7 @@ const ProductsHome = () => {
                         <Product key={product._id} product={product}></Product>
                     ))}
                     <div className="text-center">
-                        <button class="btn mx-auto btn-outline-white border-0 rounded-0">
+                        <button className="btn mx-auto btn-outline-white border-0 rounded-0">
                             <Link to="/products" className="nav-link">
                                 Show All Product{" "}
                                 <p className="p-0 m-0 w-75 mx-auto">
