@@ -13,7 +13,7 @@ const Products = () => {
                                 <p className="text-danger text-center fs-5">
                                     OUR PRODUCTS
                                 </p>
-                                <h1 className="text-center pb-5  w-50 w-sm-0 px-5 mx-auto">
+                                <h1 className="text-center pb-5 col-lg-6 w-sm-0 px-lg-5 mx-auto">
                                     We provide all of your industrial solution
                                 </h1>
                             </div>
