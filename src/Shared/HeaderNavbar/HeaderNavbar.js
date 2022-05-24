@@ -38,6 +38,10 @@ const HeaderNavbar = () => {
                         >
                             <CustomLink to="/">Home</CustomLink>
                             <CustomLink to="/products">Products</CustomLink>
+                            <CustomLink to="/myPortfolio">
+                                My Portfolio
+                            </CustomLink>
+                            <CustomLink to="/blogs">Blogs</CustomLink>
 
                             {user ? (
                                 <button

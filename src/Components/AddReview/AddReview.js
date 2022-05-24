@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import auth from "../../firebase.init";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const AddReview = () => {
+    const [rating, setRating] = useState(null);
+    const [hoverRating, setHoverRating] = useState(null);
     const { register, reset, handleSubmit } = useForm();
     const [user, loading, error] = useAuthState(auth);
     const { displayName, email, photoURL } = user;
 
     const onSubmit = async (data) => {
+        console.log(data);
         fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
@@ -85,6 +91,59 @@ const AddReview = () => {
                                                         placeholder="Enter email"
                                                     />
                                                 </Form.Group>
+                                                <div>
+                                                    {[...Array(5)].map(
+                                                        (star, index) => {
+                                                            const ratingValue =
+                                                                index + 1;
+                                                            return (
+                                                                <label>
+                                                                    <input
+                                                                        type="radio"
+                                                                        name="rating"
+                                                                        value={
+                                                                            ratingValue
+                                                                        }
+                                                                        {...register(
+                                                                            "ratingValue",
+                                                                            {
+                                                                                required: true,
+                                                                            }
+                                                                        )}
+                                                                        onClick={() =>
+                                                                            setRating(
+                                                                                ratingValue
+                                                                            )
+                                                                        }
+                                                                    />
+                                                                    <FontAwesomeIcon
+                                                                        className="star"
+                                                                        icon={
+                                                                            faStar
+                                                                        }
+                                                                        color={
+                                                                            ratingValue <=
+                                                                            (hoverRating ||
+                                                                                rating)
+                                                                                ? "#ffc107"
+                                                                                : "#e4e5e9"
+                                                                        }
+                                                                        onMouseOver={() =>
+                                                                            setHoverRating(
+                                                                                ratingValue
+                                                                            )
+                                                                        }
+                                                                        onMouseOut={() =>
+                                                                            setHoverRating(
+                                                                                null
+                                                                            )
+                                                                        }
+                                                                    />
+                                                                </label>
+                                                            );
+                                                        }
+                                                    )}
+                                                </div>
 
                                                 <Form.Group
                                                     className="mb-3 "

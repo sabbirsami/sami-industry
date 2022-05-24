@@ -86,6 +86,17 @@ body {
     width: 300px;
     height: auto;
 }
+
+/* RATING */
+
+input[type="radio"] {
+    display: none;
+}
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
+
 /* BUSINESS SECTION  */
 .divider {
     height: 2px;

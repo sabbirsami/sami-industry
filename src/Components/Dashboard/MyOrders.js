@@ -14,7 +14,6 @@ const MyOrders = () => {
     const handleShow = () => setShow(true);
     // handleShow();
 
-    console.log(show);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
@@ -97,16 +96,35 @@ const MyOrders = () => {
                                 <td>{order.quantity}</td>
                                 <td>$ {order.totalPrice}</td>
                                 <td className="p-0">
-                                    <Link
-                                        to={`/dashboard/payment/${order._id}`}
-                                    >
-                                        <button
-                                            onClick={() => handlePay(order._id)}
-                                            className="btn btn-success w-100 rounded-0 m-0"
+                                    {!order.paid && (
+                                        <Link
+                                            to={`/dashboard/payment/${order._id}`}
                                         >
-                                            Pay
-                                        </button>
-                                    </Link>
+                                            <button
+                                                onClick={() =>
+                                                    handlePay(order._id)
+                                                }
+                                                className="btn btn-success w-100 rounded-0 m-0"
+                                            >
+                                                Pay
+                                            </button>
+                                        </Link>
+                                    )}
+                                    {order.totalPrice && !order.paid && (
+                                        <div>
+                                            <p>
+                                                <span className="text-success">
+                                                    Paid
+                                                </span>
+                                            </p>
+                                            <p>
+                                                Transaction id:{" "}
+                                                <span className="text-success">
+                                                    {order.transactionId}
+                                                </span>
+                                            </p>
+                                        </div>
+                                    )}
                                 </td>
                                 <td className="p-0">
                                     <button
