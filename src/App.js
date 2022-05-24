@@ -8,8 +8,6 @@ import Footer from "./Shared/Footer";
 import "swiper/css";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Login/SignUp";
-import MyProfile from "./Components/MyProfile/MyProfile";
-import MyOrders from "./Components/MyOrders/MyOrders";
 import AddReview from "./Components/AddReview/AddReview";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import AddProduct from "./Components/AddReview/AddProduct";
@@ -20,6 +18,8 @@ import RequireAuth from "./Shared/RequireAuth";
 import ManageUser from "./Components/Dashboard/ManageUser";
 import RequireAdmin from "./Shared/RequireAdmin";
 import ManageReview from "./Components/Dashboard/ManageReview";
+import MyProfile from "./Components/Dashboard/MyProfile";
+import MyOrders from "./Components/Dashboard/MyOrders";
 
 function App() {
     return (
@@ -48,11 +48,7 @@ function App() {
                     ></Route>
                     <Route
                         path="addNewProduct"
-                        element={
-                            <RequireAdmin>
-                                <AddProduct></AddProduct>
-                            </RequireAdmin>
-                        }
+                        element={<AddProduct></AddProduct>}
                     ></Route>
                     <Route
                         path="manageUser"
@@ -64,11 +60,7 @@ function App() {
                     ></Route>
                     <Route
                         path="manageProducts"
-                        element={
-                            <RequireAdmin>
-                                <ManageProduct></ManageProduct>
-                            </RequireAdmin>
-                        }
+                        element={<ManageProduct></ManageProduct>}
                     ></Route>
                     <Route
                         path="manageReview"

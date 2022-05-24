@@ -25,37 +25,49 @@ const Order = () => {
     if (loading) {
         return <Loading></Loading>;
     }
-    const onSubmit = (data) => {
-        const price = parseInt(product.price * data.quantity);
-        const order = {
-            userName: data.userName,
-            productName: product.name,
-            totalPrice: price,
-            userAddress: data.address,
-            quantity: data.quantity,
-            singlePrice: product.price,
-            userEmail: data.email,
-        };
-        console.log(order);
-        fetch("http://localhost:5000/order", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(order),
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result) {
-                    toast.success("Successfully added");
-                    reset();
-                }
 
-                console.log("Success:", result);
+    let errorMessage;
+
+    const onSubmit = (data) => {
+        const quantityUserWant = parseInt(data.quantity);
+        if (quantityUserWant < 1000 && quantityUserWant > 100000) {
+            errorMessage = (
+                <small className="text-danger">
+                    Please give a valid number
+                </small>
+            );
+        } else {
+            const price = parseInt(product.price * data.quantity);
+            const order = {
+                userName: data.userName,
+                productName: product.name,
+                totalPrice: price,
+                userAddress: data.address,
+                quantity: data.quantity,
+                singlePrice: product.price,
+                userEmail: data.email,
+            };
+            console.log(order);
+            fetch("http://localhost:5000/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(order),
             })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+                .then((response) => response.json())
+                .then((result) => {
+                    if (result) {
+                        toast.success("Successfully added");
+                        reset();
+                    }
+
+                    console.log("Success:", result);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
     };
     return (
         <div className="pt-5 mt-5">
@@ -122,13 +134,12 @@ const Order = () => {
                                         <Form.Control
                                             {...register("quantity", {
                                                 required: true,
-                                                min: 1000,
-                                                max: 100000,
                                             })}
                                             className="rounded-0"
                                             type="number"
                                             placeholder="Enter Quantity"
                                         />
+                                        {errorMessage}
                                     </Form.Group>
                                     <Form.Group
                                         as={Col}
