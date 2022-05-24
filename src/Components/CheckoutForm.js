@@ -72,6 +72,8 @@ const CheckoutForm = ({ order }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id,
             };
+
+            console.log(payment);
             fetch(`http://localhost:5000/order/${_id}`, {
                 method: "PATCH",
                 headers: {

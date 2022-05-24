@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
+import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import quote from "../../Assets/images/chat-left-quote-fill.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
@@ -13,6 +15,9 @@ const Review = () => {
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
+
+    console.log(reviews);
+
     return (
         <div className="review_section_bg text-white">
             <div className="container">
@@ -56,6 +61,28 @@ const Review = () => {
                                                         {review.name}
                                                     </h1>
                                                     <p>{review.dic}</p>
+                                                    <div>
+                                                        <label>
+                                                            <span className="bg-light px-3 py-2 rounded-pill">
+                                                                <span className="text-dark pe-1">
+                                                                    {
+                                                                        review.ratingValue
+                                                                    }
+                                                                </span>
+                                                                <FontAwesomeIcon
+                                                                    className="star"
+                                                                    icon={
+                                                                        faStar
+                                                                    }
+                                                                    color={
+                                                                        review.ratingValue
+                                                                            ? "#ffc107"
+                                                                            : "#ffc107"
+                                                                    }
+                                                                />
+                                                            </span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>

@@ -43,13 +43,17 @@ const Dashboard = () => {
                                         >
                                             My Profile
                                         </CustomLink>
-
+                                        {/* {admin ? (
+                                            ""
+                                        ) : ( */}
                                         <CustomLink
                                             className="d-block mt-2"
                                             to="/dashboard/myOrders"
                                         >
                                             My Order
                                         </CustomLink>
+                                        {/* )} */}
+
                                         {/* {admin ? (
                                             ""
                                         ) : ( */}

@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    // handleShow();
+    //
 
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
@@ -37,9 +37,10 @@ const MyOrders = () => {
                 })
                 .then((data) => setOrders(data));
         }
-    }, [user]);
+    }, [orders]);
 
     const handleDelete = (id) => {
+        handleShow();
         console.log(id);
 
         fetch(`http://localhost:5000/order/${id}`, {
@@ -110,7 +111,7 @@ const MyOrders = () => {
                                             </button>
                                         </Link>
                                     )}
-                                    {order.totalPrice && !order.paid && (
+                                    {order.totalPrice && order.paid && (
                                         <div>
                                             <p>
                                                 <span className="text-success">
