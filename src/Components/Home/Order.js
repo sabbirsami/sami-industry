@@ -2,31 +2,61 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 
 const Order = () => {
-    const [user, loading, error] = useAuthState(auth);
-    console.log(user);
+    const [user, loading] = useAuthState(auth);
+
     const { productId } = useParams();
-    const {
-        register,
-        reset,
-        formState: { errors },
-        handleSubmit,
-    } = useForm();
+    const { register, reset, handleSubmit } = useForm();
 
     const [product, setProduct] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/product/${productId}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
-    }, []);
+    }, [productId]);
 
     const { price, img, name, about, quantity, minimumOrderQuantity } = product;
 
-    const onSubmit = (data) => {};
+    if (loading) {
+        return <Loading></Loading>;
+    }
+    const onSubmit = (data) => {
+        const price = parseInt(product.price * data.quantity);
+        const order = {
+            userName: data.userName,
+            productName: product.name,
+            totalPrice: price,
+            userAddress: data.address,
+            quantity: data.quantity,
+            singlePrice: product.price,
+            userEmail: data.email,
+        };
+        console.log(order);
+        fetch("http://localhost:5000/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(order),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result) {
+                    toast.success("Successfully added");
+                    reset();
+                }
+
+                console.log("Success:", result);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
     return (
         <div className="pt-5 mt-5">
             <div className="container">
@@ -34,12 +64,12 @@ const Order = () => {
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="px-4">
-                            <Form>
+                            <Form onSubmit={handleSubmit(onSubmit)}>
                                 <Row className="mb-3">
                                     <Form.Group as={Col}>
                                         <Form.Label>Your Name</Form.Label>
                                         <Form.Control
-                                            {...register("name", {
+                                            {...register("userName", {
                                                 required: true,
                                             })}
                                             className="rounded-0"
@@ -86,7 +116,9 @@ const Order = () => {
 
                                 <Row className="mb-3">
                                     <Form.Group as={Col} className="mb-3">
-                                        <Form.Label>Quantity</Form.Label>
+                                        <Form.Label>
+                                            Quantity you want
+                                        </Form.Label>
                                         <Form.Control
                                             {...register("quantity", {
                                                 required: true,
@@ -129,12 +161,68 @@ const Order = () => {
 
                                 <Button
                                     className="btn btn-danger rounded-0 w-100 py-2"
-                                    variant="primary"
                                     type="submit"
                                 >
-                                    Submit
+                                    Order
                                 </Button>
                             </Form>
+
+                            {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
+                            {/* PRODUCT NAME  */}
+                            {/* <Form.Group className="mb-3">
+                                    <Form.Label>Your Name</Form.Label>
+                                    <Form.Control
+                                        {...register("name", {
+                                            required: true,
+                                        })}
+                                        className="rounded-0"
+                                        type="text"
+                                        value={user.displayName}
+                                        readOnly
+                                        placeholder="Enter name"
+                                    />
+                                </Form.Group> */}
+
+                            {/* EMAIL */}
+                            {/* <Form.Group
+                                    className="mb-3"
+                                    controlId="formBasicEmail"
+                                >
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control
+                                        {...register("email", {
+                                            required: true,
+                                        })}
+                                        value={user?.email || ""}
+                                        readOnly
+                                        required
+                                        className="rounded-0"
+                                        type="email"
+                                        placeholder="Enter email"
+                                    />
+                                </Form.Group>
+
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Quantity</Form.Label>
+                                    <Form.Control
+                                        {...register("quantity", {
+                                            required: true,
+                                            min: 1000,
+                                            max: 100000,
+                                        })}
+                                        className="rounded-0"
+                                        type="number"
+                                        placeholder="Enter Quantity"
+                                    />
+                                </Form.Group>
+
+                                <button
+                                    type="submit"
+                                    className="btn btn-danger rounded-0 w-100 py-2"
+                                >
+                                    Order
+                                </button>
+                            </Form> */}
                         </div>
                     </div>
                     <div className="col-lg-4">
