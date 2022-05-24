@@ -33,7 +33,7 @@ const ManageUser = () => {
         })
             .then((res) => {
                 if (res.status === 403) {
-                    toast.success(`Failed to make an admin`, {
+                    toast.error(`Failed to make an admin`, {
                         duration: 3000,
                     });
                     signOut(auth);
@@ -69,7 +69,7 @@ const ManageUser = () => {
     return (
         <div className="">
             <div className="p-lg-3">
-                <h2 className="pb-3">Manage Product</h2>
+                <h2 className="pb-3">Manage User</h2>
                 <Table bordered hover>
                     <thead>
                         <tr>

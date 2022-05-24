@@ -134,6 +134,8 @@ const Order = () => {
                                         <Form.Control
                                             {...register("quantity", {
                                                 required: true,
+                                                min: 1000,
+                                                max: 100000,
                                             })}
                                             className="rounded-0"
                                             type="number"
@@ -177,63 +179,6 @@ const Order = () => {
                                     Order
                                 </Button>
                             </Form>
-
-                            {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
-                            {/* PRODUCT NAME  */}
-                            {/* <Form.Group className="mb-3">
-                                    <Form.Label>Your Name</Form.Label>
-                                    <Form.Control
-                                        {...register("name", {
-                                            required: true,
-                                        })}
-                                        className="rounded-0"
-                                        type="text"
-                                        value={user.displayName}
-                                        readOnly
-                                        placeholder="Enter name"
-                                    />
-                                </Form.Group> */}
-
-                            {/* EMAIL */}
-                            {/* <Form.Group
-                                    className="mb-3"
-                                    controlId="formBasicEmail"
-                                >
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control
-                                        {...register("email", {
-                                            required: true,
-                                        })}
-                                        value={user?.email || ""}
-                                        readOnly
-                                        required
-                                        className="rounded-0"
-                                        type="email"
-                                        placeholder="Enter email"
-                                    />
-                                </Form.Group>
-
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Quantity</Form.Label>
-                                    <Form.Control
-                                        {...register("quantity", {
-                                            required: true,
-                                            min: 1000,
-                                            max: 100000,
-                                        })}
-                                        className="rounded-0"
-                                        type="number"
-                                        placeholder="Enter Quantity"
-                                    />
-                                </Form.Group>
-
-                                <button
-                                    type="submit"
-                                    className="btn btn-danger rounded-0 w-100 py-2"
-                                >
-                                    Order
-                                </button>
-                            </Form> */}
                         </div>
                     </div>
                     <div className="col-lg-4">

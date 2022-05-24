@@ -20,6 +20,7 @@ import RequireAdmin from "./Shared/RequireAdmin";
 import ManageReview from "./Components/Dashboard/ManageReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import MyOrders from "./Components/Dashboard/MyOrders";
+import EditProfile from "./Components/Dashboard/EditProfile";
 
 function App() {
     return (
@@ -47,8 +48,16 @@ function App() {
                         element={<MyOrders></MyOrders>}
                     ></Route>
                     <Route
+                        path="editProfile"
+                        element={<EditProfile></EditProfile>}
+                    ></Route>
+                    <Route
                         path="addNewProduct"
-                        element={<AddProduct></AddProduct>}
+                        element={
+                            <RequireAdmin>
+                                <AddProduct></AddProduct>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="manageUser"
@@ -60,11 +69,19 @@ function App() {
                     ></Route>
                     <Route
                         path="manageProducts"
-                        element={<ManageProduct></ManageProduct>}
+                        element={
+                            <RequireAdmin>
+                                <ManageProduct></ManageProduct>
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="manageReview"
-                        element={<ManageReview></ManageReview>}
+                        element={
+                            <RequireAdmin>
+                                <ManageReview></ManageReview>
+                            </RequireAdmin>
+                        }
                     ></Route>
                 </Route>
 

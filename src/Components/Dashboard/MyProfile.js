@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import blankProfile from "../../Assets/images/Blank_Profile.jpg";
+import CustomLink from "../../Shared/CustomLink";
 
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -15,7 +16,7 @@ const MyProfile = () => {
                     <h1 className="text-center">My Profile</h1>
                     <div className="divider mx-auto bg-danger mb-4"></div>
                     <div className="row ">
-                        <div class=" col-lg-6">
+                        <div class=" col-lg-3">
                             <div className="user_photo p-4 ms-lg-auto">
                                 <img
                                     src={photoURL || blankProfile}
@@ -24,16 +25,24 @@ const MyProfile = () => {
                                 />
                             </div>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-9">
                             <div class="card-body me-lg-auto">
                                 <h5 class="card-title">{}</h5>
-                                <div className="name_field">
+                                <div className="name_field position-relative">
                                     <p className="m-0">
                                         <b>
                                             <small>Name:</small>
                                         </b>
                                     </p>
-                                    <h1>{displayName}</h1>
+                                    <h2 className="fw-light">{displayName}</h2>
+                                    <button className="btn btn-outline-secondary text-dark rounded-0 position-absolute top-0 end-0">
+                                        <CustomLink
+                                            className="d-block"
+                                            to="/dashboard/editProfile"
+                                        >
+                                            Edit Profile
+                                        </CustomLink>
+                                    </button>
                                 </div>
                                 <div className="email_field">
                                     <p className="m-0">
@@ -41,7 +50,23 @@ const MyProfile = () => {
                                             <small>Email:</small>
                                         </b>
                                     </p>
-                                    <h4>{email}</h4>
+                                    <p>{email}</p>
+                                </div>
+                                <div className="address_field">
+                                    <p className="m-0">
+                                        <b>
+                                            <small>Address: {}</small>
+                                        </b>
+                                    </p>
+                                    <p>{}</p>
+                                </div>
+                                <div className="phoneNumber_field">
+                                    <p className="m-0">
+                                        <b>
+                                            <small>Phone Number: {}</small>
+                                        </b>
+                                    </p>
+                                    <p>{}</p>
                                 </div>
                                 <p class="card-text">
                                     <small>{}</small>

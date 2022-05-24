@@ -1,10 +1,14 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import auth from "../../firebase.init";
 
 const AddReview = () => {
     const { register, reset, handleSubmit } = useForm();
+    const [user, loading, error] = useAuthState(auth);
+    const { displayName, email, photoURL } = user;
 
     const onSubmit = async (data) => {
         fetch("http://localhost:5000/review", {
@@ -55,6 +59,8 @@ const AddReview = () => {
                                                         {...register("name", {
                                                             required: true,
                                                         })}
+                                                        readOnly
+                                                        value={displayName}
                                                         className="rounded-0"
                                                         type="text"
                                                         placeholder="Enter name"
@@ -71,6 +77,8 @@ const AddReview = () => {
                                                         {...register("email", {
                                                             required: true,
                                                         })}
+                                                        value={email}
+                                                        readOnly
                                                         required
                                                         className="rounded-0"
                                                         type="email"
