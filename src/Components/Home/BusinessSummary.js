@@ -19,7 +19,7 @@ const BusinessSummary = () => {
                         <div className="business_content py-4  ">
                             <div className="row">
                                 <div className="col-lg-3">
-                                    <div className=" d-flex justify-content-center align-items-center text-center">
+                                    <div className=" d-flex p-3 p-lg-0 justify-content-center align-items-center text-center">
                                         <FontAwesomeIcon
                                             icon={faFlag}
                                             style={{
@@ -36,7 +36,7 @@ const BusinessSummary = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
-                                    <div className=" d-flex justify-content-center align-items-center text-center">
+                                    <div className=" d-flex p-3 p-lg-0 justify-content-center align-items-center text-center">
                                         <FontAwesomeIcon
                                             icon={faThumbsUp}
                                             style={{
@@ -53,7 +53,7 @@ const BusinessSummary = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
-                                    <div className=" d-flex justify-content-center align-items-center text-center">
+                                    <div className=" d-flex p-3 p-lg-0 justify-content-center align-items-center text-center">
                                         <FontAwesomeIcon
                                             icon={faThumbsUp}
                                             style={{
@@ -70,7 +70,7 @@ const BusinessSummary = () => {
                                     </div>
                                 </div>
                                 <div className="col-lg-3">
-                                    <div className=" d-flex justify-content-center align-items-center text-center">
+                                    <div className=" d-flex p-3 p-lg-0 justify-content-center align-items-center text-center">
                                         <FontAwesomeIcon
                                             icon={faUsers}
                                             style={{

@@ -8,6 +8,7 @@ const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     console.log(user);
     const { displayName, email, photoURL } = user;
+    console.log(photoURL);
 
     return (
         <div>

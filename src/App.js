@@ -21,6 +21,7 @@ import ManageReview from "./Components/Dashboard/ManageReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import MyOrders from "./Components/Dashboard/MyOrders";
 import EditProfile from "./Components/Dashboard/EditProfile";
+import Payment from "./Components/Dashboard/Payment";
 
 function App() {
     return (
@@ -46,6 +47,10 @@ function App() {
                     <Route
                         path="myOrders"
                         element={<MyOrders></MyOrders>}
+                    ></Route>
+                    <Route
+                        path="payment/:paymentId"
+                        element={<Payment></Payment>}
                     ></Route>
                     <Route
                         path="editProfile"
