@@ -46,6 +46,7 @@ const Order = () => {
                 quantity: data.quantity,
                 singlePrice: product.price,
                 userEmail: data.email,
+                productImg: product.img,
             };
             console.log(order);
             fetch("http://localhost:5000/order", {
