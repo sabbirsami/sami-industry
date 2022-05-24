@@ -11,7 +11,12 @@ const Order = () => {
     const [user, loading] = useAuthState(auth);
 
     const { productId } = useParams();
-    const { register, reset, handleSubmit } = useForm();
+    const {
+        register,
+        formState: { errors },
+        reset,
+        handleSubmit,
+    } = useForm();
 
     const [product, setProduct] = useState([]);
     useEffect(() => {
@@ -26,49 +31,38 @@ const Order = () => {
         return <Loading></Loading>;
     }
 
-    let errorMessage;
-
     const onSubmit = (data) => {
-        const quantityUserWant = parseInt(data.quantity);
-        if (quantityUserWant < 1000 && quantityUserWant > 100000) {
-            errorMessage = (
-                <small className="text-danger">
-                    Please give a valid number
-                </small>
-            );
-        } else {
-            const price = parseInt(product.price * data.quantity);
-            const order = {
-                userName: data.userName,
-                productName: product.name,
-                totalPrice: price,
-                userAddress: data.address,
-                quantity: data.quantity,
-                singlePrice: product.price,
-                userEmail: data.email,
-                productImg: product.img,
-            };
-            console.log(order);
-            fetch("http://localhost:5000/order", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(order),
-            })
-                .then((response) => response.json())
-                .then((result) => {
-                    if (result) {
-                        toast.success("Successfully added");
-                        reset();
-                    }
+        const price = parseInt(product.price * data.quantity);
+        const order = {
+            userName: data.userName,
+            productName: product.name,
+            totalPrice: price,
+            userAddress: data.address,
+            quantity: data.quantity,
+            singlePrice: product.price,
+            userEmail: data.email,
+            productImg: product.img,
+        };
+        console.log(order);
+        fetch("http://localhost:5000/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(order),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result) {
+                    toast.success("Successfully order added in My Order");
+                    reset();
+                }
 
-                    console.log("Success:", result);
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                });
-        }
+                console.log("Success:", result);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
     return (
         <div className="pt-5 mt-5">
@@ -135,14 +129,35 @@ const Order = () => {
                                         <Form.Control
                                             {...register("quantity", {
                                                 required: true,
-                                                min: 1000,
-                                                max: 100000,
+                                                min: {
+                                                    value: 1000,
+                                                    message:
+                                                        "Quantity must be more then 1000",
+                                                },
+                                                max: {
+                                                    value: quantity,
+                                                    message:
+                                                        "Quantity must be less then Available Quantity",
+                                                },
                                             })}
                                             className="rounded-0"
                                             type="number"
                                             placeholder="Enter Quantity"
                                         />
-                                        {errorMessage}
+                                        <small>
+                                            {errors.quantity?.type ===
+                                                "min" && (
+                                                <span className=" text-danger">
+                                                    {errors.quantity.message}
+                                                </span>
+                                            )}
+                                            {errors.quantity?.type ===
+                                                "max" && (
+                                                <span className=" text-danger">
+                                                    {errors.quantity.message}
+                                                </span>
+                                            )}
+                                        </small>
                                     </Form.Group>
                                     <Form.Group
                                         as={Col}
