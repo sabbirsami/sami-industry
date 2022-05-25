@@ -90,7 +90,7 @@ const ManageReview = () => {
                             <tr key={review._id}>
                                 <td>{index + 1}</td>
                                 <td>{review.name}</td>
-                                <td>$ {review.dic}</td>
+                                <td>{review.dic}</td>
                                 <td className="p-0">
                                     <button
                                         onClick={() =>
