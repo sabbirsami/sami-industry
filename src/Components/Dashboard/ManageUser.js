@@ -1,12 +1,22 @@
 import { signOut } from "firebase/auth";
-import React from "react";
-import { Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Modal, Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 
 const ManageUser = () => {
+    const [show, setShow] = useState(false);
+    const [deletingOrder, setDeletingOrder] = useState();
+    const handleClose = () => setShow(false);
+    const handleModalOpen = (id) => {
+        setShow(true);
+        setDeletingOrder(id);
+    };
+    const handleConfirm = (id) => {
+        handleDelete(id);
+    };
     const {
         data: users,
         isLoading,
@@ -63,10 +73,40 @@ const ManageUser = () => {
                     duration: 3000,
                 });
                 refetch();
+                handleClose();
             });
     };
     return (
         <div className="">
+            {/* MODAL  */}
+            <>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header
+                        className="border-0"
+                        closeButton
+                    ></Modal.Header>
+                    <Modal.Body className="text-center">
+                        Are you sure? you want to{" "}
+                        <span className="text-danger">Cancel Order</span>
+                    </Modal.Body>
+                    <Modal.Footer className="border-0 text-center justify-content-center pb-5">
+                        <Button
+                            className="rounded-0 btn-outline-success alert-success py-2 px-5"
+                            variant="secondary"
+                            onClick={handleClose}
+                        >
+                            No
+                        </Button>
+                        <Button
+                            className="rounded-0 btn-danger py-2 px-5"
+                            variant="primary"
+                            onClick={() => handleConfirm(deletingOrder)}
+                        >
+                            Yes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
             <div className="p-lg-3">
                 <h2 className="pb-3">Manage User</h2>
                 <Table bordered hover>
@@ -101,7 +141,9 @@ const ManageUser = () => {
                                 </td>
                                 <td className="p-0">
                                     <button
-                                        onClick={() => handleDelete(user._id)}
+                                        onClick={() =>
+                                            handleModalOpen(user._id)
+                                        }
                                         className="btn btn-danger w-100 rounded-0 m-0"
                                     >
                                         Remove

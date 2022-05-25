@@ -39,8 +39,8 @@ const ManageReview = () => {
                 toast.success(`Successfully deleted`, {
                     duration: 3000,
                 });
-                handleClose();
                 refetch();
+                handleClose();
             });
     };
     return (
