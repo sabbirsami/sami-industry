@@ -1,10 +1,20 @@
-import React from "react";
-import { Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Modal, Table } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading";
 
 const ManageReview = () => {
+    const [show, setShow] = useState(false);
+    const [deletingOrder, setDeletingOrder] = useState();
+    const handleClose = () => setShow(false);
+    const handleModalOpen = (id) => {
+        setShow(true);
+        setDeletingOrder(id);
+    };
+    const handleConfirm = (id) => {
+        handleDelete(id);
+    };
     const {
         data: reviews,
         isLoading,
@@ -29,11 +39,41 @@ const ManageReview = () => {
                 toast.success(`Successfully deleted`, {
                     duration: 3000,
                 });
+                handleClose();
                 refetch();
             });
     };
     return (
         <div>
+            {/* MODAL  */}
+            <>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header
+                        className="border-0"
+                        closeButton
+                    ></Modal.Header>
+                    <Modal.Body className="text-center">
+                        Are you sure? you want to{" "}
+                        <span className="text-danger">Cancel Order</span>
+                    </Modal.Body>
+                    <Modal.Footer className="border-0 text-center justify-content-center pb-5">
+                        <Button
+                            className="rounded-0 btn-outline-success alert-success py-2 px-5"
+                            variant="secondary"
+                            onClick={handleClose}
+                        >
+                            No
+                        </Button>
+                        <Button
+                            className="rounded-0 btn-danger py-2 px-5"
+                            variant="primary"
+                            onClick={() => handleConfirm(deletingOrder)}
+                        >
+                            Yes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </>
             <div className="p-3 table-responsive">
                 <h2 className="pb-3">Manage Review</h2>
                 <Table bordered hover>
@@ -53,7 +93,9 @@ const ManageReview = () => {
                                 <td>$ {review.dic}</td>
                                 <td className="p-0">
                                     <button
-                                        onClick={() => handleDelete(review._id)}
+                                        onClick={() =>
+                                            handleModalOpen(review._id)
+                                        }
                                         className="btn btn-danger w-100 rounded-0 m-0"
                                     >
                                         Delete Review
