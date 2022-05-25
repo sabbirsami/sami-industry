@@ -11,6 +11,10 @@ body {
     background-color: #e04d5b;
     border-radius: 100px;
 }
+h1::selection {
+    color: #ffffff;
+    background-color: #e04d5b;
+}
 .headerNavbar .nav_item {
     font-family: rubik;
     font-size: 26px;
