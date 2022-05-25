@@ -39,13 +39,13 @@ const Payment = () => {
     const onSubmit = (data) => {};
     return (
         <div>
-            <div className="pt-5 mt-5">
+            <div className=" mt-5">
                 <div className="container">
                     <h1 className="text-center">Payment Page</h1>
                     <div className="row">
                         <div className="col-lg-8">
-                            <div className="mt-3">
-                                <div className="p-5 shadow">
+                            <div className="mt-5">
+                                <div className="p-5 m-lg-4 shadow">
                                     <Elements stripe={stripePromise}>
                                         <CheckoutForm order={order} />
                                     </Elements>
@@ -53,7 +53,7 @@ const Payment = () => {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="py-3">
+                            <div className="py-4 m-lg-4">
                                 <div className="card rounded-0">
                                     <img
                                         src={productImg}

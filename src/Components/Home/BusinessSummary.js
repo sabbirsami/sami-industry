@@ -1,6 +1,12 @@
-import { faFlag, faThumbsUp, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+    faFlag,
+    faStar,
+    faThumbsUp,
+    faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import projectImg from "../../Assets/images/list-check-solid.svg";
 
 const BusinessSummary = () => {
     return (
@@ -38,16 +44,16 @@ const BusinessSummary = () => {
                                 <div className="col-lg-3">
                                     <div className=" d-flex p-3 p-lg-0 justify-content-center align-items-center text-center">
                                         <FontAwesomeIcon
-                                            icon={faThumbsUp}
+                                            icon={faStar}
                                             style={{
                                                 color: "#d63031",
                                                 fontSize: "60px",
                                             }}
                                         />
                                         <div className="text ps-3">
-                                            <h1 className=" m-0">32+</h1>
+                                            <h1 className=" m-0">232+</h1>
                                             <p className="m-0 p-0 text-danger">
-                                                Feedbacks
+                                                Review
                                             </p>
                                         </div>
                                     </div>
@@ -62,7 +68,7 @@ const BusinessSummary = () => {
                                             }}
                                         />
                                         <div className="text ps-3">
-                                            <h1 className=" m-0">32+</h1>
+                                            <h1 className=" m-0">212+</h1>
                                             <p className="m-0 p-0 text-danger">
                                                 Feedbacks
                                             </p>
@@ -79,7 +85,7 @@ const BusinessSummary = () => {
                                             }}
                                         />
                                         <div className="text ps-3">
-                                            <h1 className=" m-0">32+</h1>
+                                            <h1 className=" m-0">201+</h1>
                                             <p className="m-0 p-0 text-danger">
                                                 Happy Clients
                                             </p>
