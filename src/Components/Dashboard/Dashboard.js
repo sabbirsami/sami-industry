@@ -14,7 +14,7 @@ const Dashboard = () => {
             {["sm"].map((expand) => (
                 <Navbar key={expand} bg="" expand={expand} className="pt-3">
                     <Container fluid className="remove_align_item">
-                        <div className="col-lg-2 d-lg-block d-none text-end">
+                        <div className="col-lg-2 d-lg-block d-none text-end p-3">
                             <Navbar.Brand
                                 className="py-5 fs-2 m-0 fw-semi-bold "
                                 href="#"
@@ -102,7 +102,7 @@ const Dashboard = () => {
                         </div>
                         <div className="col-lg-10 col-12">
                             <Navbar.Toggle
-                                className="outline-none border-0 bg-danger rounded-0"
+                                className="outline-none border-0 text-white rounded-0"
                                 aria-controls={`offcanvasNavbar-expand-${expand}`}
                             />
                             <Outlet></Outlet>

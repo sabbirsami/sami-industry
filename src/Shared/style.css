@@ -15,6 +15,10 @@ h1::selection {
     color: #ffffff;
     background-color: #e04d5b;
 }
+.skill_icon :hover {
+    transition: 0.5s;
+    transform: translateY(-10px);
+}
 .headerNavbar .nav_item {
     font-family: rubik;
     font-size: 26px;

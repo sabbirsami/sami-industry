@@ -1,9 +1,19 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../Hooks/useAdmin";
+import Loading from "../../Shared/Loading";
 
 const Product = ({ product }) => {
+    const navigate = useNavigate();
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+    console.log(admin);
+
     const {
         id,
         price,
@@ -16,7 +26,6 @@ const Product = ({ product }) => {
         minimumOrderQuantity,
     } = product;
 
-    const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/product/${id}`);
     };
@@ -45,19 +54,37 @@ const Product = ({ product }) => {
                         <p className="card-text">
                             <small>{about}</small>
                         </p>
-                        <button
-                            onClick={() => navigateToPurchase(product._id)}
-                            className="btn btn-outline-dark rounded-0"
-                        >
-                            Order Now{" "}
-                            <FontAwesomeIcon
-                                icon={faArrowRight}
-                                style={{
-                                    color: "black",
-                                    paddingLeft: "10px",
-                                }}
-                            />
-                        </button>
+
+                        {admin ? (
+                            <button
+                                disabled
+                                onClick={() => navigateToPurchase(product._id)}
+                                className="btn btn-outline-dark rounded-0"
+                            >
+                                Order Now{" "}
+                                <FontAwesomeIcon
+                                    icon={faArrowRight}
+                                    style={{
+                                        color: "black",
+                                        paddingLeft: "10px",
+                                    }}
+                                />
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => navigateToPurchase(product._id)}
+                                className="btn btn-outline-dark rounded-0"
+                            >
+                                Order Now{" "}
+                                <FontAwesomeIcon
+                                    icon={faArrowRight}
+                                    style={{
+                                        color: "black",
+                                        paddingLeft: "10px",
+                                    }}
+                                />
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
