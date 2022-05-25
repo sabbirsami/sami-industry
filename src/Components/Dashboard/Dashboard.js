@@ -10,13 +10,25 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className="pt-5 mt-3">
+        <div className="pt-5">
             {["sm"].map((expand) => (
-                <Navbar key={expand} bg="" expand={expand} className="pt-3">
-                    <Container fluid className="remove_align_item">
-                        <div className="col-lg-2 d-lg-block d-none text-end p-3">
+                <Navbar
+                    key={expand}
+                    bg=""
+                    className="pt-4 pb-0"
+                    expand={expand}
+                >
+                    <Container
+                        fluid
+                        className="remove_align_item px-lg-0"
+                        style={{ height: "100vh" }}
+                    >
+                        <div
+                            style={{ height: "100vh" }}
+                            className="col-lg-2 alert-success text-success d-lg-block d-none p-3"
+                        >
                             <Navbar.Brand
-                                className="py-5 fs-2 m-0 fw-semi-bold "
+                                className="py-5 fs-5 m-0 fw-semi-bold "
                                 href="#"
                             >
                                 DASHBOARD
@@ -53,7 +65,14 @@ const Dashboard = () => {
                                             My Order
                                         </CustomLink>
                                         {/* )} */}
-
+                                        {admin && (
+                                            <CustomLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/manageProducts"
+                                            >
+                                                Manage Products
+                                            </CustomLink>
+                                        )}
                                         {/* {admin ? (
                                             ""
                                         ) : ( */}
@@ -69,17 +88,10 @@ const Dashboard = () => {
                                                 className="d-block mt-2"
                                                 to="/dashboard/addNewProduct"
                                             >
-                                                Add New Product
+                                                Add Product
                                             </CustomLink>
                                         )}
-                                        {admin && (
-                                            <CustomLink
-                                                className="d-block mt-2"
-                                                to="/dashboard/manageProducts"
-                                            >
-                                                Manage Products
-                                            </CustomLink>
-                                        )}
+
                                         {admin && (
                                             <CustomLink
                                                 className="d-block mt-2"
