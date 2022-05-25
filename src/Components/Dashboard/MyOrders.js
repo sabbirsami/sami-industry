@@ -6,14 +6,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import DeleteModal from "../../Shared/DeleteModal";
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     const [show, setShow] = useState(false);
     const [deletingOrder, setDeletingOrder] = useState();
-
     const handleClose = () => setShow(false);
     const handleModalOpen = (id) => {
         setShow(true);

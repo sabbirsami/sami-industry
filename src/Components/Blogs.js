@@ -1,5 +1,4 @@
 import React from "react";
-import DeleteModal from "../Shared/DeleteModal";
 
 const Blogs = () => {
     return (
@@ -14,7 +13,6 @@ const Blogs = () => {
                                 Application?
                             </h3>
                         </div>
-                        <DeleteModal></DeleteModal>
                         <div className="answer">
                             <p></p>
                         </div>
