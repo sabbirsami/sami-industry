@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import quote from "../../Assets/images/chat-left-quote-fill.png";
+import quote from "../../Assets/images/quote-right-solid.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,9 +49,9 @@ const Review = () => {
                                     {reviews.map((review) => (
                                         <SwiperSlide key={review._id}>
                                             <div className="p-5">
-                                                <div className="reviews p-lg-5">
+                                                <div className="reviews p-lg-5 ">
                                                     <img
-                                                        className="change-icon-color"
+                                                        className="change-icon-color text-light d-lg-block ms-auto pe-lg-5"
                                                         src={quote}
                                                         alt=""
                                                     />

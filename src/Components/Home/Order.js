@@ -122,70 +122,76 @@ const Order = () => {
                                 </Form.Group>
 
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} className="mb-3">
-                                        <Form.Label>
-                                            Quantity you want
-                                        </Form.Label>
-                                        <Form.Control
-                                            {...register("quantity", {
-                                                required: true,
-                                                min: {
-                                                    value: minimumOrderQuantity,
-                                                    message:
-                                                        "Quantity must be more then Minimum order quantity",
-                                                },
-                                                max: {
-                                                    value: quantity,
-                                                    message:
-                                                        "Quantity must be less then Available Quantity",
-                                                },
-                                            })}
-                                            className="rounded-0"
-                                            type="number"
-                                            placeholder="Enter Quantity"
-                                        />
-                                        <small>
-                                            {errors.quantity?.type ===
-                                                "min" && (
-                                                <span className=" text-danger">
-                                                    {errors.quantity.message}
-                                                </span>
-                                            )}
-                                            {errors.quantity?.type ===
-                                                "max" && (
-                                                <span className=" text-danger">
-                                                    {errors.quantity.message}
-                                                </span>
-                                            )}
-                                        </small>
-                                    </Form.Group>
-                                    <Form.Group
-                                        as={Col}
-                                        controlId="formGridCity"
-                                    >
-                                        <Form.Label>City</Form.Label>
-                                        <Form.Control
-                                            {...register("city", {
-                                                required: true,
-                                            })}
-                                            type="text"
-                                            className="rounded-0"
-                                        />
-                                    </Form.Group>
+                                    <div className="col-lg-4">
+                                        <Form.Group className="mb-3">
+                                            <Form.Label>
+                                                Quantity you want
+                                            </Form.Label>
+                                            <Form.Control
+                                                {...register("quantity", {
+                                                    required: true,
+                                                    min: {
+                                                        value: minimumOrderQuantity,
+                                                        message:
+                                                            "Quantity must be more then Minimum order quantity",
+                                                    },
+                                                    max: {
+                                                        value: quantity,
+                                                        message:
+                                                            "Quantity must be less then Available Quantity",
+                                                    },
+                                                })}
+                                                className="rounded-0"
+                                                type="number"
+                                                placeholder="Enter Quantity"
+                                            />
+                                            <small>
+                                                {errors.quantity?.type ===
+                                                    "min" && (
+                                                    <span className=" text-danger">
+                                                        {
+                                                            errors.quantity
+                                                                .message
+                                                        }
+                                                    </span>
+                                                )}
+                                                {errors.quantity?.type ===
+                                                    "max" && (
+                                                    <span className=" text-danger">
+                                                        {
+                                                            errors.quantity
+                                                                .message
+                                                        }
+                                                    </span>
+                                                )}
+                                            </small>
+                                        </Form.Group>
+                                    </div>
+                                    <div className="col-lg-4">
+                                        <Form.Group controlId="formGridCity">
+                                            <Form.Label>City</Form.Label>
+                                            <Form.Control
+                                                {...register("city", {
+                                                    required: true,
+                                                })}
+                                                type="text"
+                                                className="rounded-0"
+                                            />
+                                        </Form.Group>
+                                    </div>
 
-                                    <Form.Group
-                                        as={Col}
-                                        controlId="formGridZip"
-                                    >
-                                        <Form.Label>Zip</Form.Label>
-                                        <Form.Control
-                                            {...register("zip", {
-                                                required: true,
-                                            })}
-                                            type="number"
-                                            className="rounded-0"
-                                        />
-                                    </Form.Group>
+                                    <div className="col-lg-4">
+                                        <Form.Group controlId="formGridZip">
+                                            <Form.Label>Zip</Form.Label>
+                                            <Form.Control
+                                                {...register("zip", {
+                                                    required: true,
+                                                })}
+                                                type="number"
+                                                className="rounded-0"
+                                            />
+                                        </Form.Group>
+                                    </div>
                                 </Row>
 
                                 <Button
