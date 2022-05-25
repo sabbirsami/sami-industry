@@ -16,7 +16,7 @@ const AddReview = () => {
     const { displayName, email, photoURL } = user;
 
     const onSubmit = async (data) => {
-        fetch("https://samindustry.herokuapp.com/review", {
+        fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

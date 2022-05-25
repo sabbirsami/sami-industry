@@ -10,16 +10,14 @@ const ManageReview = () => {
         isLoading,
         refetch,
     } = useQuery("products", () =>
-        fetch("https://samindustry.herokuapp.com/review").then((res) =>
-            res.json()
-        )
+        fetch("http://localhost:5000/review").then((res) => res.json())
     );
 
     if (isLoading) {
         return <Loading></Loading>;
     }
     const handleDelete = (id) => {
-        fetch(`https://samindustry.herokuapp.com/review/${id}`, {
+        fetch(`http://localhost:5000/review/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

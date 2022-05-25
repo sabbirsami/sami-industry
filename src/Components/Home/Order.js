@@ -20,7 +20,7 @@ const Order = () => {
 
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`https://samindustry.herokuapp.com/product/${productId}`)
+        fetch(`http://localhost:5000/product/${productId}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, [productId]);
@@ -44,7 +44,7 @@ const Order = () => {
             productImg: product.img,
         };
 
-        fetch("https://samindustry.herokuapp.com/order", {
+        fetch("http://localhost:5000/order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

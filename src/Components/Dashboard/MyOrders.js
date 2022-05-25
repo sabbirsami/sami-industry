@@ -6,17 +6,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import DeleteModal from "../../Shared/DeleteModal";
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
+
     const [show, setShow] = useState(false);
+    const [deletingOrder, setDeletingOrder] = useState();
+
     const handleClose = () => setShow(false);
-    const handleCancelOrder = (id) => {
-        setShow(false);
-    };
-    const handleShow = (id) => {
+    const handleModalOpen = (id) => {
         setShow(true);
-        handleCancelOrder(id);
+        setDeletingOrder(id);
+    };
+    const handleConfirm = (id) => {
+        handleDelete(id);
     };
 
     const [user] = useAuthState(auth);
@@ -24,17 +28,14 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(
-                `https://samindustry.herokuapp.com/order?email=${user.email}`,
-                {
-                    method: "GET",
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem(
-                            "accessToken"
-                        )}`,
-                    },
-                }
-            )
+            fetch(`http://localhost:5000/order?email=${user.email}`, {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            })
                 .then((res) => {
                     if (res.status === 401 || res.status === 403) {
                         localStorage.removeItem("accessToken");
@@ -48,8 +49,8 @@ const MyOrders = () => {
     }, [orders]);
 
     const handleDelete = (id) => {
-        handleShow(id);
-        fetch(`https://samindustry.herokuapp.com/order/${id}`, {
+        console.log(id);
+        fetch(`http://localhost:5000/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -61,6 +62,7 @@ const MyOrders = () => {
                 toast.success(`Cancel`, {
                     duration: 3000,
                 });
+                handleClose();
             });
     };
 
@@ -72,13 +74,28 @@ const MyOrders = () => {
             {/* MODAL  */}
             <>
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Body>Are you sure you want to cancel?</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
+                    <Modal.Header
+                        className="border-0"
+                        closeButton
+                    ></Modal.Header>
+                    <Modal.Body className="text-center">
+                        Are you sure? you want to{" "}
+                        <span className="text-danger">Cancel Order</span>
+                    </Modal.Body>
+                    <Modal.Footer className="border-0 text-center justify-content-center pb-5">
+                        <Button
+                            className="rounded-0 btn-outline-success alert-success py-2 px-5"
+                            variant="secondary"
+                            onClick={handleClose}
+                        >
+                            No
                         </Button>
-                        <Button variant="primary" onClick={handleCancelOrder}>
-                            Save Changes
+                        <Button
+                            className="rounded-0 btn-danger py-2 px-5"
+                            variant="primary"
+                            onClick={() => handleConfirm(deletingOrder)}
+                        >
+                            Yes
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -136,7 +153,9 @@ const MyOrders = () => {
                                 </td>
                                 <td className="p-0">
                                     <button
-                                        onClick={() => handleDelete(order._id)}
+                                        onClick={() =>
+                                            handleModalOpen(order._id)
+                                        }
                                         className="btn btn-danger w-100 rounded-0 m-0"
                                     >
                                         Cancel

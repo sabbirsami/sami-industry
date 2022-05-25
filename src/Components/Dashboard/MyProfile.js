@@ -7,6 +7,7 @@ import CustomLink from "../../Shared/CustomLink";
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const { displayName, email, photoURL } = user;
+    console.log(user);
 
     return (
         <div>

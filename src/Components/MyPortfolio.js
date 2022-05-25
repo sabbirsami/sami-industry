@@ -28,7 +28,7 @@ const MyPortfolio = () => {
                                             Sabbir Mohammad Sami
                                         </h1>
                                         <p>
-                                            <b>JUNIOR WEB DEVELOPER </b>
+                                            <b>WEB DEVELOPER </b>
                                         </p>
                                     </div>
                                 </div>
