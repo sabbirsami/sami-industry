@@ -11,22 +11,30 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    //
+    const handleCancelOrder = (id) => {
+        setShow(false);
+    };
+    const handleShow = (id) => {
+        setShow(true);
+        handleCancelOrder(id);
+    };
 
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
-                method: "GET",
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-            })
+            fetch(
+                `https://samindustry.herokuapp.com/order?email=${user.email}`,
+                {
+                    method: "GET",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                }
+            )
                 .then((res) => {
                     if (res.status === 401 || res.status === 403) {
                         localStorage.removeItem("accessToken");
@@ -40,9 +48,8 @@ const MyOrders = () => {
     }, [orders]);
 
     const handleDelete = (id) => {
-        handleShow();
-
-        fetch(`http://localhost:5000/order/${id}`, {
+        handleShow(id);
+        fetch(`https://samindustry.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -56,6 +63,7 @@ const MyOrders = () => {
                 });
             });
     };
+
     const handlePay = (id) => {
         console.log(id);
     };
@@ -69,7 +77,7 @@ const MyOrders = () => {
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={handleCancelOrder}>
                             Save Changes
                         </Button>
                     </Modal.Footer>

@@ -12,7 +12,7 @@ const ManageUser = () => {
         isLoading,
         refetch,
     } = useQuery("products", () =>
-        fetch(`http://localhost:5000/user`, {
+        fetch(`https://samindustry.herokuapp.com/user`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -25,7 +25,7 @@ const ManageUser = () => {
     }
 
     const makeAdmin = (email) => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://samindustry.herokuapp.com/user/admin/${email}`, {
             method: "PUT",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -51,7 +51,7 @@ const ManageUser = () => {
             });
     };
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://samindustry.herokuapp.com/user/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
