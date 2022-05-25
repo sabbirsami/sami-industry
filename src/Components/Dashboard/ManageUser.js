@@ -108,7 +108,7 @@ const ManageUser = () => {
                 </Modal>
             </>
             <div className="p-lg-3">
-                <h2 className="pb-3">Manage User</h2>
+                <h2 className="pb-3 table-responsive">Manage User</h2>
                 <Table bordered hover>
                     <thead>
                         <tr>
