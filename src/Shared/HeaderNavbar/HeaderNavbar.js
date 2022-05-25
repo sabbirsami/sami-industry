@@ -7,6 +7,7 @@ import NavLogo from "../../Assets/images/logo.png";
 import auth from "../../firebase.init";
 import CustomLink from "../CustomLink";
 import Loading from "../Loading";
+import HeaderTop from "./HeaderTop";
 
 const HeaderNavbar = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -19,6 +20,7 @@ const HeaderNavbar = () => {
     }
     return (
         <div className="headerNavbar">
+            {/* <HeaderTop></HeaderTop> */}
             <Navbar bg="light" expand="lg" className="fixed-top">
                 <Container className="py-2">
                     <NavLink to="/">

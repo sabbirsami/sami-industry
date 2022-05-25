@@ -23,6 +23,7 @@ import MyOrders from "./Components/Dashboard/MyOrders";
 import EditProfile from "./Components/Dashboard/EditProfile";
 import Payment from "./Components/Dashboard/Payment";
 import MyPortfolio from "./Components/MyPortfolio";
+import Blogs from "./Components/Blogs";
 
 function App() {
     return (
@@ -35,7 +36,7 @@ function App() {
                     element={<MyPortfolio></MyPortfolio>}
                 ></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
-                <Route path="/blogs" element={<Products></Products>}></Route>
+                <Route path="/blogs" element={<Blogs></Blogs>}></Route>
                 <Route
                     path="/dashboard"
                     element={
