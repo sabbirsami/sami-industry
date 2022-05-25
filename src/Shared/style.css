@@ -182,12 +182,12 @@ input[type="radio"] {
 }
 
 /* REVIEW SECTION  */
-.add_review_section_bg {
+/* .add_review_section_bg {
     background-image: url("../Assets/images/5405439.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 .remove_align_item {
     align-items: start !important;
 }
