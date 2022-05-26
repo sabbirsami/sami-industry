@@ -26,14 +26,17 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
-                method: "GET",
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-            })
+            fetch(
+                `https://samindustry.herokuapp.com/order?email=${user.email}`,
+                {
+                    method: "GET",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                }
+            )
                 .then((res) => {
                     if (res.status === 401 || res.status === 403) {
                         localStorage.removeItem("accessToken");
@@ -48,7 +51,7 @@ const MyOrders = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://samindustry.herokuapp.com/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -16,7 +16,7 @@ const CheckoutForm = ({ order }) => {
     console.log(paymentPrice);
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://samindustry.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -83,7 +83,7 @@ const CheckoutForm = ({ order }) => {
             console.log(payment);
 
             console.log(payment);
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://samindustry.herokuapp.com/order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",

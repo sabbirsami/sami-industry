@@ -20,7 +20,7 @@ const ManageOrders = () => {
         isLoading,
         refetch,
     } = useQuery("orders", () =>
-        fetch("http://localhost:5000/orders", {
+        fetch("https://samindustry.herokuapp.com/orders", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -32,7 +32,7 @@ const ManageOrders = () => {
         return <Loading></Loading>;
     }
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://samindustry.herokuapp.com/orders/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

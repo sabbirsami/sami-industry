@@ -14,7 +14,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
     const { register, reset, handleSubmit } = useForm();
     const { paymentId } = useParams();
-    const url = `http://localhost:5000/order/${paymentId}`;
+    const url = `https://samindustry.herokuapp.com/order/${paymentId}`;
     const { data: order, isLoading } = useQuery(["booking", paymentId], () =>
         fetch(url, {
             method: "GET",

@@ -34,7 +34,7 @@ const AddProduct = () => {
                         minimumOrderQuantity: data.minimumOrderQuantity,
                         img: image,
                     };
-                    fetch("http://localhost:5000/product", {
+                    fetch("https://samindustry.herokuapp.com/product", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
