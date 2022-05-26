@@ -8,6 +8,7 @@ import {
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 import useToken from "../../Hooks/useToken";
+import PageTitle from "../../Shared/PageTitle";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -46,6 +47,7 @@ const Login = () => {
     return (
         <div>
             <div className="container">
+                <PageTitle title="Login"></PageTitle>
                 <div className="m-5">
                     <div className="p-lg-5">
                         <div className="m-lg-5">

@@ -10,6 +10,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useToken from "../../Hooks/useToken";
 import Loading from "../../Shared/Loading";
+import PageTitle from "../../Shared/PageTitle";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -57,6 +58,7 @@ const SignUp = () => {
     };
     return (
         <div className="pt-5">
+            <PageTitle title="Sign Up"></PageTitle>
             <div className="container">
                 <div className="m-5">
                     <div className="p-lg-5">

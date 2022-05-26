@@ -7,10 +7,12 @@ import css from "../Assets/images/icon-skill/css3-brands.svg";
 import js from "../Assets/images/icon-skill/js-brands.svg";
 import nodejs from "../Assets/images/icon-skill/node-js-brands.svg";
 import react from "../Assets/images/icon-skill/react-brands.svg";
+import PageTitle from "../Shared/PageTitle";
 
 const MyPortfolio = () => {
     return (
         <div className="pt-5 mt-4">
+            <PageTitle title="My Portfolio"></PageTitle>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">

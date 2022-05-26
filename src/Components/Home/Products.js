@@ -1,10 +1,12 @@
 import useProducts from "../../Hooks/useProducts";
+import PageTitle from "../../Shared/PageTitle";
 import Product from "./Product";
 
 const Products = () => {
     const [products, setProducts] = useProducts([]);
     return (
         <div className="pb-5">
+            <PageTitle title="Products"></PageTitle>
             <div className="container">
                 <div className="row">
                     <div className="pt-lg-5">

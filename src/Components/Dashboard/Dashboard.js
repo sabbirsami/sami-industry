@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import DashboardLink from "../../Shared/DashboardLink";
 import { signOut } from "firebase/auth";
 import arrowRight from "../../Assets/images/arrow-right-from-bracket-solid.png";
+import PageTitle from "../../Shared/PageTitle";
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -17,6 +18,7 @@ const Dashboard = () => {
     };
     return (
         <div className="pt-5">
+            <PageTitle title="Dashboard"></PageTitle>
             {["sm"].map((expand) => (
                 <Navbar
                     key={expand}

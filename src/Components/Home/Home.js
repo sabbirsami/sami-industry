@@ -1,4 +1,5 @@
 import React from "react";
+import PageTitle from "../../Shared/PageTitle";
 import Banner from "./Banner";
 import BusinessSummary from "./BusinessSummary";
 import Offer from "./Offer";
