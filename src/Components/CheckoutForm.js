@@ -9,17 +9,20 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
+    console.log(clientSecret);
 
     const { _id, totalPrice, userName, userEmail } = order;
+    const paymentPrice = parseInt(totalPrice);
+    console.log(paymentPrice);
 
     useEffect(() => {
-        fetch("https://samindustry.herokuapp.com/create-payment-intent", {
+        fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
-            body: JSON.stringify({ totalPrice }),
+            body: JSON.stringify({ paymentPrice }),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -27,7 +30,7 @@ const CheckoutForm = ({ order }) => {
                     setClientSecret(data.clientSecret);
                 }
             });
-    }, [totalPrice]);
+    }, [paymentPrice]);
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!stripe || !elements) {
@@ -41,6 +44,8 @@ const CheckoutForm = ({ order }) => {
             type: "card",
             card,
         });
+
+        // ERROR
         if (error) {
             setCardError(error.message);
             setSuccess("");
@@ -63,7 +68,10 @@ const CheckoutForm = ({ order }) => {
         if (intentError) {
             setCardError(intentError?.message);
             setSuccess("");
-        } else {
+        }
+
+        //
+        else {
             setCardError("");
             setTransactionId(paymentIntent.id);
             setSuccess("Your payment is complete.");
@@ -72,9 +80,10 @@ const CheckoutForm = ({ order }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id,
             };
+            console.log(payment);
 
             console.log(payment);
-            fetch(`https://samindustry.herokuapp.com/order/${_id}`, {
+            fetch(`http://localhost:5000/order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",
@@ -112,7 +121,7 @@ const CheckoutForm = ({ order }) => {
                 <button
                     className="btn btn-success alert-success mt-3"
                     type="submit"
-                    disabled={!stripe || clientSecret}
+                    disabled={!stripe || !clientSecret}
                 >
                     Pay
                 </button>

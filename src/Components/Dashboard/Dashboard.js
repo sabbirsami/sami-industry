@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faAlignLeft,
     faCommentAlt,
+    faEllipsis,
+    faEllipsisV,
     faHome,
     faIndent,
     faList,
@@ -182,6 +184,7 @@ const Dashboard = () => {
                                 className="outline-none pt-3 d-lg-none ms-auto text-end d-block border-0 text-white rounded-0"
                                 aria-controls={`offcanvasNavbar-expand-${expand}`}
                             />
+
                             <Outlet></Outlet>
                         </div>
                     </Container>

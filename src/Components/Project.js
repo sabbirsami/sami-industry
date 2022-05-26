@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Project = () => {
@@ -14,6 +15,8 @@ const Project = () => {
                             >
                                 Farmi Organic
                             </a>
+                            <i class="fa-solid fa-moon"></i>
+                            <FontAwesomeIcon icon="fa-solid fa-moon" />
                         </p>
                     </div>
                 </div>

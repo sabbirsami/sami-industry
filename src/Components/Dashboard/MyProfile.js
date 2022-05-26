@@ -67,7 +67,7 @@ const MyProfile = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-2">
+                        <div className="col-lg-2 pt-2">
                             <button className="btn btn-outline-secondary text-dark rounded-0 mt-lg-4">
                                 <CustomLink
                                     className="d-block"
