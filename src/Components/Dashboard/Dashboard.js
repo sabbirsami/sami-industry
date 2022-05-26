@@ -82,20 +82,20 @@ const Dashboard = () => {
                                             />{" "}
                                             My Profile
                                         </DashboardLink>
-                                        {/* {admin ? (
+                                        {admin ? (
                                             ""
-                                        ) : ( */}
-                                        <DashboardLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/myOrders"
-                                        >
-                                            <FontAwesomeIcon
-                                                icon={faList}
-                                                className="pe-2"
-                                            />{" "}
-                                            My Order
-                                        </DashboardLink>
-                                        {/* )} */}
+                                        ) : (
+                                            <DashboardLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/myOrders"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faList}
+                                                    className="pe-2"
+                                                />{" "}
+                                                My Order
+                                            </DashboardLink>
+                                        )}
                                         {admin && (
                                             <DashboardLink
                                                 className="d-block mt-2"
@@ -108,20 +108,32 @@ const Dashboard = () => {
                                                 Manage Products
                                             </DashboardLink>
                                         )}
-                                        {/* {admin ? (
+                                        {admin && (
+                                            <DashboardLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/manageOrders"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faAlignLeft}
+                                                    className="pe-2"
+                                                />{" "}
+                                                Manage Orders
+                                            </DashboardLink>
+                                        )}
+                                        {admin ? (
                                             ""
-                                        ) : ( */}
-                                        <DashboardLink
-                                            className="d-block mt-2"
-                                            to="/dashboard/addReview"
-                                        >
-                                            <FontAwesomeIcon
-                                                icon={faCommentAlt}
-                                                className="pe-2"
-                                            />{" "}
-                                            Add Review
-                                        </DashboardLink>
-                                        {/* )} */}
+                                        ) : (
+                                            <DashboardLink
+                                                className="d-block mt-2"
+                                                to="/dashboard/addReview"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faCommentAlt}
+                                                    className="pe-2"
+                                                />{" "}
+                                                Add Review
+                                            </DashboardLink>
+                                        )}
                                         {admin && (
                                             <DashboardLink
                                                 className="d-block mt-2"

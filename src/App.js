@@ -25,6 +25,7 @@ import Payment from "./Components/Dashboard/Payment";
 import MyPortfolio from "./Components/MyPortfolio";
 import Blogs from "./Components/Blogs";
 import Project from "./Components/Project";
+import ManageOrders from "./Components/Dashboard/ManageOrders";
 
 function App() {
     return (
@@ -85,6 +86,14 @@ function App() {
                         element={
                             <RequireAdmin>
                                 <ManageProduct></ManageProduct>
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="manageOrders"
+                        element={
+                            <RequireAdmin>
+                                <ManageOrders></ManageOrders>
                             </RequireAdmin>
                         }
                     ></Route>

@@ -77,7 +77,7 @@ const CheckoutForm = ({ order }) => {
             setSuccess("Your payment is complete.");
 
             const payment = {
-                appointment: _id,
+                order: _id,
                 transactionId: paymentIntent.id,
             };
             console.log(payment);
