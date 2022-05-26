@@ -203,3 +203,12 @@ input[type="radio"] {
 .dashboard-bg {
     background-color: #4c52bb;
 }
+.contact_info {
+    background-image: url("../Assets/images/contuctbg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.rounded-4 {
+    border-radius: 13px;
+}

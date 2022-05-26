@@ -4,6 +4,7 @@ import HeaderNavbar from "../../Shared/HeaderNavbar/HeaderNavbar";
 import PageTitle from "../../Shared/PageTitle";
 import Banner from "./Banner";
 import BusinessSummary from "./BusinessSummary";
+import Contact from "./Contact";
 import Offer from "./Offer";
 import OurTeam from "./OurTeam";
 import Partnership from "./Partnership";
@@ -22,6 +23,7 @@ const Home = () => {
             <OurTeam></OurTeam>
             <Offer></Offer>
             <BusinessSummary></BusinessSummary>
+            <Contact></Contact>
             <Footer />
         </div>
     );
