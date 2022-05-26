@@ -15,8 +15,24 @@ const Project = () => {
                             >
                                 Farmi Organic
                             </a>
-                            <i class="fa-solid fa-moon"></i>
-                            <FontAwesomeIcon icon="fa-solid fa-moon" />
+                        </p>
+                        <p>
+                            Project 02:{" "}
+                            <a
+                                href="https://ss-photography-2022.web.app/"
+                                target={"_blank"}
+                            >
+                                SS Photography
+                            </a>
+                        </p>
+                        <p>
+                            Project 03:{" "}
+                            <a
+                                href="https://dream-bag-shop.netlify.app/blogs"
+                                target={"_blank"}
+                            >
+                                Dream Bag
+                            </a>
                         </p>
                     </div>
                 </div>
