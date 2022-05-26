@@ -34,7 +34,7 @@ const Login = () => {
                 <small>
                     <i>
                         {googleError?.message.split(":")[1]}{" "}
-                        {error.message.split(":")[1]}
+                        {error?.message.split(":")[1]}
                     </i>
                 </small>
             </p>
