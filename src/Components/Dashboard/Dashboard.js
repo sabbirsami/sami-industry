@@ -9,6 +9,16 @@ import { signOut } from "firebase/auth";
 import arrowRight from "../../Assets/images/arrow-right-from-bracket-solid.png";
 import PageTitle from "../../Shared/PageTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faAlignLeft,
+    faCommentAlt,
+    faHome,
+    faIndent,
+    faList,
+    faListAlt,
+    faUserCircle,
+    faUserFriends,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -54,12 +64,20 @@ const Dashboard = () => {
                                 <Offcanvas.Body className="d-block pt-lg-4">
                                     <Nav className="d-block">
                                         <DashboardLink to="/">
+                                            <FontAwesomeIcon
+                                                icon={faHome}
+                                                className="pe-2"
+                                            ></FontAwesomeIcon>{" "}
                                             Home
                                         </DashboardLink>
                                         <DashboardLink
                                             className="d-block mt-2"
                                             to="/dashboard"
                                         >
+                                            <FontAwesomeIcon
+                                                icon={faUserCircle}
+                                                className="pe-2"
+                                            />{" "}
                                             My Profile
                                         </DashboardLink>
                                         {/* {admin ? (
@@ -69,6 +87,10 @@ const Dashboard = () => {
                                             className="d-block mt-2"
                                             to="/dashboard/myOrders"
                                         >
+                                            <FontAwesomeIcon
+                                                icon={faList}
+                                                className="pe-2"
+                                            />{" "}
                                             My Order
                                         </DashboardLink>
                                         {/* )} */}
@@ -77,6 +99,10 @@ const Dashboard = () => {
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageProducts"
                                             >
+                                                <FontAwesomeIcon
+                                                    icon={faAlignLeft}
+                                                    className="pe-2"
+                                                />{" "}
                                                 Manage Products
                                             </DashboardLink>
                                         )}
@@ -87,6 +113,10 @@ const Dashboard = () => {
                                             className="d-block mt-2"
                                             to="/dashboard/addReview"
                                         >
+                                            <FontAwesomeIcon
+                                                icon={faCommentAlt}
+                                                className="pe-2"
+                                            />{" "}
                                             Add Review
                                         </DashboardLink>
                                         {/* )} */}
@@ -95,6 +125,10 @@ const Dashboard = () => {
                                                 className="d-block mt-2"
                                                 to="/dashboard/addNewProduct"
                                             >
+                                                <FontAwesomeIcon
+                                                    icon={faIndent}
+                                                    className="pe-2"
+                                                />{" "}
                                                 Add Product
                                             </DashboardLink>
                                         )}
@@ -104,6 +138,10 @@ const Dashboard = () => {
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageReview"
                                             >
+                                                <FontAwesomeIcon
+                                                    icon={faListAlt}
+                                                    className="pe-2"
+                                                />{" "}
                                                 Manage Review
                                             </DashboardLink>
                                         )}
@@ -112,6 +150,10 @@ const Dashboard = () => {
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageUser"
                                             >
+                                                <FontAwesomeIcon
+                                                    icon={faUserFriends}
+                                                    className="pe-2"
+                                                />{" "}
                                                 Manage Users
                                             </DashboardLink>
                                         )}
