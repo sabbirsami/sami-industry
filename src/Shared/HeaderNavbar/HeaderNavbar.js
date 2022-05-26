@@ -15,9 +15,9 @@ const HeaderNavbar = () => {
         signOut(auth);
         localStorage.removeItem("accessToken");
     };
-    if (loading) {
-        return <Loading></Loading>;
-    }
+    // if (loading) {
+    //     return <Loading></Loading>;
+    // }
     return (
         <div className="headerNavbar">
             {/* <HeaderTop></HeaderTop> */}
