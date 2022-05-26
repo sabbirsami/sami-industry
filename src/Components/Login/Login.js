@@ -9,6 +9,8 @@ import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 import useToken from "../../Hooks/useToken";
 import PageTitle from "../../Shared/PageTitle";
+import HeaderNavbar from "../../Shared/HeaderNavbar/HeaderNavbar";
+import Footer from "../../Shared/Footer";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -46,6 +48,7 @@ const Login = () => {
     }
     return (
         <div>
+            <HeaderNavbar></HeaderNavbar>
             <div className="container">
                 <PageTitle title="Login"></PageTitle>
                 <div className="m-5">
@@ -131,6 +134,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

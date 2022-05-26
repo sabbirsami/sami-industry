@@ -29,7 +29,6 @@ import Project from "./Components/Project";
 function App() {
     return (
         <>
-            <HeaderNavbar></HeaderNavbar>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route
@@ -111,7 +110,7 @@ function App() {
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
                 <Route path="*" element={<PageNotFount></PageNotFount>}></Route>
             </Routes>
-            <Footer></Footer>
+
             <Toaster position="top-center" reverseOrder={false} />
         </>
     );

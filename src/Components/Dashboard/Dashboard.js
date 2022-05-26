@@ -8,6 +8,7 @@ import DashboardLink from "../../Shared/DashboardLink";
 import { signOut } from "firebase/auth";
 import arrowRight from "../../Assets/images/arrow-right-from-bracket-solid.png";
 import PageTitle from "../../Shared/PageTitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -17,22 +18,17 @@ const Dashboard = () => {
         localStorage.removeItem("accessToken");
     };
     return (
-        <div className="pt-5">
+        <div className="">
             <PageTitle title="Dashboard -"></PageTitle>
             {["sm"].map((expand) => (
-                <Navbar
-                    key={expand}
-                    bg=""
-                    className="pt-4 pb-0"
-                    expand={expand}
-                >
+                <Navbar key={expand} bg="" className=" p-0" expand={expand}>
                     <Container
                         fluid
                         className="remove_align_item px-lg-0"
-                        style={{ height: "93vh" }}
+                        style={{ height: "100vh" }}
                     >
                         <div
-                            style={{ height: "93vh" }}
+                            style={{ height: "100vh" }}
                             className="col-lg-2 dashboard-bg text-light bg-gradient d-lg-block d-none pt-4 position-relative"
                         >
                             <Navbar.Brand
@@ -57,6 +53,9 @@ const Dashboard = () => {
                                 </Offcanvas.Header>
                                 <Offcanvas.Body className="d-block pt-lg-4">
                                     <Nav className="d-block">
+                                        <DashboardLink to="/">
+                                            Home
+                                        </DashboardLink>
                                         <DashboardLink
                                             className="d-block mt-2"
                                             to="/dashboard"
@@ -136,9 +135,9 @@ const Dashboard = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-10 col-12">
+                        <div className="col-lg-10 pt-lg-5 col-12">
                             <Navbar.Toggle
-                                className="outline-none border-0 text-white rounded-0"
+                                className="outline-none pt-3 d-lg-none ms-auto text-end d-block border-0 text-white rounded-0"
                                 aria-controls={`offcanvasNavbar-expand-${expand}`}
                             />
                             <Outlet></Outlet>
