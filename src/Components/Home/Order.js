@@ -133,16 +133,16 @@ const Order = () => {
                                                 <Form.Control
                                                     {...register("quantity", {
                                                         required: true,
-                                                        // min: {
-                                                        //     value: minimumOrderQuantity,
-                                                        //     message:
-                                                        //         "Quantity must be more then Minimum order quantity",
-                                                        // },
-                                                        // max: {
-                                                        //     value: quantity,
-                                                        //     message:
-                                                        //         "Quantity must be less then Available Quantity",
-                                                        // },
+                                                        min: {
+                                                            value: minimumOrderQuantity,
+                                                            message:
+                                                                "Quantity must be more then Minimum order quantity",
+                                                        },
+                                                        max: {
+                                                            value: quantity,
+                                                            message:
+                                                                "Quantity must be less then Available Quantity",
+                                                        },
                                                     })}
                                                     className="rounded-0"
                                                     type="number"
