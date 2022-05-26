@@ -18,6 +18,8 @@ import {
     faIndent,
     faList,
     faListAlt,
+    faOutdent,
+    faTh,
     faUserCircle,
     faUserFriends,
 } from "@fortawesome/free-solid-svg-icons";
@@ -114,7 +116,7 @@ const Dashboard = () => {
                                                 to="/dashboard/manageOrders"
                                             >
                                                 <FontAwesomeIcon
-                                                    icon={faAlignLeft}
+                                                    icon={faTh}
                                                     className="pe-2"
                                                 />{" "}
                                                 Manage Orders
