@@ -38,12 +38,27 @@ const MyPortfolio = () => {
                                 <div className="portfolio_content py-4">
                                     <div className="little_dic">
                                         <p>
+                                            <span>
+                                                Study at :{" "}
+                                                <b>Kabi Nazrul Govt. College</b>
+                                            </span>
+                                            <br />
+                                            <span>
+                                                Cadet lance corporal :
+                                                <b>
+                                                    Bangladesh national cadet
+                                                    corps
+                                                </b>
+                                            </span>
+                                        </p>
+                                        <p>
                                             I want to be a Web Developer. I work
                                             hard to reach my goal and I am fully
                                             focused on it because If you want to
                                             be a successful programmer you will
-                                            have to focused. So I decided to say
-                                            focus on my goal. And I will do it.
+                                            have to be focused. So I decided to
+                                            say focus on my goal. And I will do
+                                            it.
                                         </p>
                                     </div>
                                 </div>
@@ -109,9 +124,9 @@ const MyPortfolio = () => {
                                     <p>
                                         <Link
                                             className="text-danger link"
-                                            to=""
+                                            to="/project"
                                         >
-                                            Some website I already done
+                                            Some project I already done.
                                         </Link>
                                     </p>
                                 </div>

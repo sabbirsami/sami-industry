@@ -2,10 +2,12 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import NavLogo from "../Assets/images/logo.png";
+import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
     return (
         <footer className="footer_section bg-light text-dark">
+            <ScrollToTop smooth top="1000" />
             <div className="py-5">
                 <div className="container">
                     <div className="py-5">
