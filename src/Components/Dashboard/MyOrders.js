@@ -108,7 +108,7 @@ const MyOrders = () => {
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Pay</th>
-                            <th>Delete</th>
+                            <th>Cancel / Pending</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -150,14 +150,25 @@ const MyOrders = () => {
                                     )}
                                 </td>
                                 <td className="p-0">
-                                    <button
-                                        onClick={() =>
-                                            handleModalOpen(order._id)
-                                        }
-                                        className="btn btn-danger w-100 rounded-0 m-0"
-                                    >
-                                        Cancel
-                                    </button>
+                                    {order.paid ? (
+                                        <button
+                                            onClick={() =>
+                                                handleModalOpen(order._id)
+                                            }
+                                            className="btn alert-success w-100 rounded-0 m-0"
+                                        >
+                                            Pending..
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() =>
+                                                handleModalOpen(order._id)
+                                            }
+                                            className="btn btn-danger w-100 rounded-0 m-0"
+                                        >
+                                            Cancel
+                                        </button>
+                                    )}
                                 </td>
                             </tr>
                         ))}
