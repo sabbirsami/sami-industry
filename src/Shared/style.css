@@ -199,3 +199,7 @@ input[type="radio"] {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.dashboard-bg {
+    background-color: #4c52bb;
+}

@@ -5,6 +5,7 @@ import auth from "../../firebase.init";
 import useAdmin from "../../Hooks/useAdmin";
 import CustomLink from "../../Shared/CustomLink";
 import { useAuthState } from "react-firebase-hooks/auth";
+import DashboardLink from "../../Shared/DashboardLink";
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -25,13 +26,13 @@ const Dashboard = () => {
                     >
                         <div
                             style={{ height: "100vh" }}
-                            className="col-lg-2 alert-success text-success d-lg-block d-none p-3"
+                            className="col-lg-2 dashboard-bg text-light bg-gradient d-lg-block d-none pt-4"
                         >
                             <Navbar.Brand
-                                className="py-5 fs-5 m-0 fw-semi-bold "
+                                className="py-5 fs-5 m-0 fw-semi-bold text-light p-4 "
                                 href="#"
                             >
-                                DASHBOARD
+                                Dashboard
                             </Navbar.Brand>
                             <hr />
 
@@ -49,64 +50,64 @@ const Dashboard = () => {
                                 </Offcanvas.Header>
                                 <Offcanvas.Body className="d-block">
                                     <Nav className="d-block">
-                                        <CustomLink
+                                        <DashboardLink
                                             className="d-block mt-2"
                                             to="/dashboard"
                                         >
                                             My Profile
-                                        </CustomLink>
+                                        </DashboardLink>
                                         {/* {admin ? (
                                             ""
                                         ) : ( */}
-                                        <CustomLink
+                                        <DashboardLink
                                             className="d-block mt-2"
                                             to="/dashboard/myOrders"
                                         >
                                             My Order
-                                        </CustomLink>
+                                        </DashboardLink>
                                         {/* )} */}
                                         {admin && (
-                                            <CustomLink
+                                            <DashboardLink
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageProducts"
                                             >
                                                 Manage Products
-                                            </CustomLink>
+                                            </DashboardLink>
                                         )}
                                         {/* {admin ? (
                                             ""
                                         ) : ( */}
-                                        <CustomLink
+                                        <DashboardLink
                                             className="d-block mt-2"
                                             to="/dashboard/addReview"
                                         >
                                             Add Review
-                                        </CustomLink>
+                                        </DashboardLink>
                                         {/* )} */}
                                         {admin && (
-                                            <CustomLink
+                                            <DashboardLink
                                                 className="d-block mt-2"
                                                 to="/dashboard/addNewProduct"
                                             >
                                                 Add Product
-                                            </CustomLink>
+                                            </DashboardLink>
                                         )}
 
                                         {admin && (
-                                            <CustomLink
+                                            <DashboardLink
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageReview"
                                             >
                                                 Manage Review
-                                            </CustomLink>
+                                            </DashboardLink>
                                         )}
                                         {admin && (
-                                            <CustomLink
+                                            <DashboardLink
                                                 className="d-block mt-2"
                                                 to="/dashboard/manageUser"
                                             >
                                                 Manage Users
-                                            </CustomLink>
+                                            </DashboardLink>
                                         )}
                                     </Nav>
                                 </Offcanvas.Body>
