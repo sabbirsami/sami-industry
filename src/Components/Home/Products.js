@@ -6,7 +6,7 @@ const Products = () => {
     const [products, setProducts] = useProducts([]);
     return (
         <div className="pb-5">
-            <PageTitle title="Products"></PageTitle>
+            <PageTitle title="Products -"></PageTitle>
             <div className="container">
                 <div className="row">
                     <div className="pt-lg-5">

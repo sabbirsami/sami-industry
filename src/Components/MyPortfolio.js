@@ -12,7 +12,7 @@ import PageTitle from "../Shared/PageTitle";
 const MyPortfolio = () => {
     return (
         <div className="pt-5 mt-4">
-            <PageTitle title="My Portfolio"></PageTitle>
+            <PageTitle title="My Portfolio -"></PageTitle>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">

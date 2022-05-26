@@ -18,7 +18,7 @@ const Dashboard = () => {
     };
     return (
         <div className="pt-5">
-            <PageTitle title="Dashboard"></PageTitle>
+            <PageTitle title="Dashboard -"></PageTitle>
             {["sm"].map((expand) => (
                 <Navbar
                     key={expand}

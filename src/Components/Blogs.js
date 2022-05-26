@@ -4,7 +4,7 @@ import PageTitle from "../Shared/PageTitle";
 const Blogs = () => {
     return (
         <div className="pt-5 mt-5">
-            <PageTitle title="Blogs"></PageTitle>
+            <PageTitle title="Blogs - "></PageTitle>
             <div className="container">
                 <div className="row">
                     <h2>Blogs</h2>
