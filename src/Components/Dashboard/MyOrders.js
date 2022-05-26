@@ -155,6 +155,7 @@ const MyOrders = () => {
                                 <td className="p-0">
                                     {order.paid ? (
                                         <button
+                                            disabled
                                             onClick={() =>
                                                 handleModalOpen(order._id)
                                             }
