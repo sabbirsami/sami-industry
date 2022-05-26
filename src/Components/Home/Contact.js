@@ -1,8 +1,8 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import js from "../../Assets/images/icon-skill/js-brands.svg";
-import nodejs from "../../Assets/images/icon-skill/node-js-brands.svg";
-import react from "../../Assets/images/icon-skill/react-brands.svg";
+import facebookIcon from "../../Assets/images/facebook-f-brands.svg";
+import insta from "../../Assets/images/instagram-brands.svg";
+import linkedin from "../../Assets/images/linkedin-in-brands.svg";
 const Contact = () => {
     return (
         <div className="partner_section_bg py-5">
@@ -39,7 +39,7 @@ const Contact = () => {
                                             <div className="single_skill_icon shadow bg-light p-4 position-relative rounded-pill">
                                                 <img
                                                     className="w-50 position-absolute top-50 start-50 translate-middle"
-                                                    src={js}
+                                                    src={linkedin}
                                                     alt=""
                                                 />
                                             </div>
@@ -48,16 +48,16 @@ const Contact = () => {
                                             <div className="single_skill_icon shadow bg-light p-4 position-relative rounded-pill">
                                                 <img
                                                     className="w-50 position-absolute top-50 start-50 translate-middle"
-                                                    src={nodejs}
+                                                    src={insta}
                                                     alt=""
                                                 />
                                             </div>
                                         </div>
                                         <div className="skill_icon px-1">
-                                            <div className="single_skill_icon shadow bg-light p-4 position-relative rounded-pill">
+                                            <div className="single_skill_icon shadow position-relative bg-light p-4  rounded-pill">
                                                 <img
-                                                    className="w-50 position-absolute top-50 start-50 translate-middle"
-                                                    src={react}
+                                                    className="w-25 position-absolute top-50 start-50 translate-middle"
+                                                    src={facebookIcon}
                                                     alt=""
                                                 />
                                             </div>
