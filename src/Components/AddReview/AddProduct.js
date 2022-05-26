@@ -113,14 +113,13 @@ const AddProduct = () => {
                                         {...register("minimumOrderQuantity", {
                                             required: true,
                                             min: {
-                                                value: 1000,
+                                                value: 10,
                                                 message:
-                                                    "Minimum order quantity - 1000",
+                                                    "Minimum order quantity - 10",
                                             },
                                             max: {
-                                                value: 100000,
-                                                message:
-                                                    "Max Quantity - 100000",
+                                                value: 1000,
+                                                message: "Max Quantity - 1000",
                                             },
                                         })}
                                         className="rounded-0"
@@ -146,14 +145,13 @@ const AddProduct = () => {
                                         {...register("quantity", {
                                             required: true,
                                             min: {
-                                                value: 1000,
+                                                value: 10,
                                                 message:
-                                                    "Minimum order quantity - 1000",
+                                                    "Minimum order quantity - 10",
                                             },
                                             max: {
-                                                value: 100000,
-                                                message:
-                                                    "Max Quantity - 100000",
+                                                value: 1000,
+                                                message: "Max Quantity - 1000",
                                             },
                                         })}
                                         className="rounded-0"
