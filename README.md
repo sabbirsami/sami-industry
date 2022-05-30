@@ -9,4 +9,5 @@ https://sami-industry.web.app/
 -   Product / Inventory Section
 -   Manage Inventory Section
 -   Blog Section
+-   contact section
 -   Dashboard
