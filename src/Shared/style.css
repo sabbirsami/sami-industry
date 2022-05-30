@@ -191,6 +191,11 @@ input[type="radio"] {
 .remove_align_item {
     align-items: start !important;
 }
+/* // BLOG  */
+
+.question {
+    padding-top: 35px;
+}
 
 /* FOOTER SECTION  */
 .footer_section {
