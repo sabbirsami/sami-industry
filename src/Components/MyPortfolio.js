@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SiMongodb, SiBootstrap, SiTailwindcss } from "react-icons/si";
 import React from "react";
 import { Link } from "react-router-dom";
 import profile from "../Assets/images/profile.jpg";
@@ -124,6 +125,23 @@ const MyPortfolio = () => {
                                                     src={react}
                                                     alt=""
                                                 />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="pt-3 d-flex">
+                                        <div className="skill_icon px-1">
+                                            <div className="single_skill_icon shadow p-4 position-relative rounded-pill">
+                                                <SiMongodb className="fs-3 position-absolute top-50 start-50 translate-middle"></SiMongodb>
+                                            </div>
+                                        </div>
+                                        <div className="skill_icon px-1">
+                                            <div className="single_skill_icon shadow p-4 position-relative rounded-pill">
+                                                <SiBootstrap className="fs-3  position-absolute top-50 start-50 translate-middle"></SiBootstrap>
+                                            </div>
+                                        </div>
+                                        <div className="skill_icon px-1">
+                                            <div className="single_skill_icon shadow p-4 position-relative rounded-pill">
+                                                <SiTailwindcss className="   fs-3 position-absolute top-50 start-50 translate-middle"></SiTailwindcss>
                                             </div>
                                         </div>
                                     </div>
