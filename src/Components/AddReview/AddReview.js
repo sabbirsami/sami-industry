@@ -12,8 +12,8 @@ const AddReview = () => {
     const [rating, setRating] = useState(null);
     const [hoverRating, setHoverRating] = useState(null);
     const { register, reset, handleSubmit } = useForm();
-    const [user, loading, error] = useAuthState(auth);
-    const { displayName, email, photoURL } = user;
+    const [user] = useAuthState(auth);
+    const { displayName, email } = user;
 
     const onSubmit = async (data) => {
         fetch("https://samindustry.herokuapp.com/review", {
