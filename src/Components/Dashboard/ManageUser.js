@@ -87,7 +87,7 @@ const ManageUser = () => {
                     ></Modal.Header>
                     <Modal.Body className="text-center">
                         Are you sure? you want to{" "}
-                        <span className="text-danger">Cancel Order</span>
+                        <span className="text-danger">Remove User</span>
                     </Modal.Body>
                     <Modal.Footer className="border-0 text-center justify-content-center pb-5">
                         <Button

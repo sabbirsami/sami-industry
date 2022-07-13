@@ -1,9 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useState } from "react";
+import { Toast } from "react-bootstrap";
 import "../../Shared/style.css";
 
 const Banner = () => {
+    const [displayNone, setDisplayNone] = useState(true);
+    const toggleShowA = () => setDisplayNone(!displayNone);
     return (
         <div className="banner_section_bg">
             <div className="container pt-5">
@@ -30,6 +34,24 @@ const Banner = () => {
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div className={`col-lg-3 mt-lg-5 ms-auto `}>
+                        <Toast show={displayNone}>
+                            <div className="text-end w-100">
+                                <button
+                                    onClose={toggleShowA}
+                                    // onClick={() => setDisplayNone(true)}
+                                    className="btn "
+                                >
+                                    X
+                                </button>
+                            </div>
+
+                            <Toast.Body>
+                                admin account <br /> sami.industry@gmail.com &
+                                123456
+                            </Toast.Body>
+                        </Toast>
                     </div>
                 </div>
             </div>
