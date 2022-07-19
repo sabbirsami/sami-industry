@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SiMongodb, SiBootstrap, SiTailwindcss } from "react-icons/si";
 import React from "react";
 import { Link } from "react-router-dom";
-import profile from "../Assets/images/profile.jpg";
+import profile from "../Assets/images/profile.jpeg";
 import html5 from "../Assets/images/icon-skill/html5-brands.svg";
 import css from "../Assets/images/icon-skill/css3-brands.svg";
 import js from "../Assets/images/icon-skill/js-brands.svg";
@@ -148,12 +148,16 @@ const MyPortfolio = () => {
                                     <div className="portfolio_divider mt-5"></div>
                                     <div className="py-4">
                                         <p>
-                                            <Link
+                                            <a
                                                 className="text-danger link"
-                                                to="/project"
+                                                href="https://sabbir-mohammad-sami.web.app/"
                                             >
-                                                Some project I already done.
-                                            </Link>
+                                                Portfolio Link:
+                                                <span className="text-primary">
+                                                    {" "}
+                                                    https://sabbir-mohammad-sami.web.app/
+                                                </span>
+                                            </a>
                                         </p>
                                     </div>
                                 </div>
