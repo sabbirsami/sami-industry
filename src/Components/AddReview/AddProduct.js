@@ -65,14 +65,14 @@ const AddProduct = () => {
                             <Form onSubmit={handleSubmit(onSubmit)}>
                                 {/* PRODUCT NAME  */}
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Your Name</Form.Label>
+                                    <Form.Label>Product Name</Form.Label>
                                     <Form.Control
                                         {...register("name", {
                                             required: true,
                                         })}
                                         className="rounded-0"
                                         type="text"
-                                        placeholder="Enter name"
+                                        placeholder="Product name"
                                     />
                                 </Form.Group>
 
@@ -85,7 +85,7 @@ const AddProduct = () => {
                                         })}
                                         className="rounded-0"
                                         type="number"
-                                        placeholder="Enter name"
+                                        placeholder="Enter price"
                                     />
                                 </Form.Group>
 
@@ -156,7 +156,7 @@ const AddProduct = () => {
                                         })}
                                         className="rounded-0"
                                         type="number"
-                                        placeholder="Enter name"
+                                        placeholder="Max quantity"
                                     />
                                     {errors?.quantity?.type === "pattern" && (
                                         <small className="text-danger">
