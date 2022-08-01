@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SiMongodb, SiBootstrap, SiTailwindcss } from "react-icons/si";
 import React from "react";
-import { Link } from "react-router-dom";
 import profile from "../Assets/images/profile.jpeg";
 import html5 from "../Assets/images/icon-skill/html5-brands.svg";
 import css from "../Assets/images/icon-skill/css3-brands.svg";
