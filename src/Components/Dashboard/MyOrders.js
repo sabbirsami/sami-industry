@@ -26,17 +26,14 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(
-                `https://sami-industry-server.vercel.app/order?email=${user.email}`,
-                {
-                    method: "GET",
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem(
-                            "accessToken"
-                        )}`,
-                    },
-                }
-            )
+            fetch(`http://localhost:5000/order/my-order/${user.email}`, {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            })
                 .then((res) => {
                     if (res.status === 401 || res.status === 403) {
                         localStorage.removeItem("accessToken");
@@ -47,7 +44,7 @@ const MyOrders = () => {
                 })
                 .then((data) => setOrders(data));
         }
-    }, [orders]);
+    }, [orders, user, navigate]);
 
     const handleDelete = (id) => {
         console.log(id);
