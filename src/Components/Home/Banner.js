@@ -35,24 +35,25 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`col-lg-3 mt-lg-5 ms-auto `}>
-                        <Toast show={displayNone}>
-                            <div className="text-end w-100">
-                                <button
-                                    onClose={toggleShowA}
-                                    // onClick={() => setDisplayNone(true)}
-                                    className="btn "
-                                >
-                                    X
-                                </button>
-                            </div>
+                    {displayNone && (
+                        <div className={`col-lg-3 mt-lg-5 ms-auto `}>
+                            <Toast show={displayNone}>
+                                <div className="text-end w-100">
+                                    <button
+                                        onClick={() => setDisplayNone(false)}
+                                        className="btn "
+                                    >
+                                        X
+                                    </button>
+                                </div>
 
-                            <Toast.Body>
-                                admin account <br /> sami.industry@gmail.com &
-                                123456
-                            </Toast.Body>
-                        </Toast>
-                    </div>
+                                <Toast.Body>
+                                    admin account <br /> sami.industry@gmail.com
+                                    & 123456
+                                </Toast.Body>
+                            </Toast>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
