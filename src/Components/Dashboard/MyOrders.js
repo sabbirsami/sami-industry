@@ -6,10 +6,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import { useQuery } from "react-query";
+import Loading from "../../Shared/Loading";
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([]);
-
     const [show, setShow] = useState(false);
     const [deletingOrder, setDeletingOrder] = useState();
     const handleClose = () => setShow(false);
@@ -24,9 +24,14 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/order/my-order/${user.email}`, {
+    const {
+        data: orders = [],
+        isLoading,
+        refetch,
+    } = useQuery({
+        queryKey: ["userOrders", user.email],
+        queryFn: () =>
+            fetch(`http://localhost:5000/orders/my-order/${user.email}`, {
                 method: "GET",
                 headers: {
                     authorization: `Bearer ${localStorage.getItem(
@@ -42,13 +47,17 @@ const MyOrders = () => {
                     }
                     return res.json();
                 })
-                .then((data) => setOrders(data));
-        }
-    }, [orders, user, navigate]);
+                .then((data) => {
+                    return data;
+                }),
+    });
+    if (isLoading) {
+        return <Loading />;
+    }
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`https://sami-industry-server.vercel.app/order/${id}`, {
+        fetch(`http://localhost:5000/orders/delete-order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -57,6 +66,7 @@ const MyOrders = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                refetch();
                 toast.success(`Cancel`, {
                     duration: 3000,
                 });
