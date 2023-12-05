@@ -20,7 +20,7 @@ const ManageOrders = () => {
         isLoading,
         refetch,
     } = useQuery("orders", () =>
-        fetch("https://samindustry.herokuapp.com/orders", {
+        fetch("https://sami-industry-server.vercel.app/orders", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -32,7 +32,7 @@ const ManageOrders = () => {
         return <Loading></Loading>;
     }
     const handleDelete = (id) => {
-        fetch(`https://samindustry.herokuapp.com/orders/${id}`, {
+        fetch(`https://sami-industry-server.vercel.app/orders/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

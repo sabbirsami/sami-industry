@@ -21,16 +21,14 @@ const ManageProduct = () => {
         isLoading,
         refetch,
     } = useQuery("products", () =>
-        fetch("https://samindustry.herokuapp.com/product").then((res) =>
-            res.json()
-        )
+        fetch("http://localhost:5000/products").then((res) => res.json())
     );
 
     if (isLoading) {
         return <Loading></Loading>;
     }
     const handleDelete = (id) => {
-        fetch(`https://samindustry.herokuapp.com/product/${id}`, {
+        fetch(`http://localhost:5000/products/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

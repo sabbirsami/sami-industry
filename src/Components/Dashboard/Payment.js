@@ -14,7 +14,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
     const { register, reset, handleSubmit } = useForm();
     const { paymentId } = useParams();
-    const url = `https://samindustry.herokuapp.com/order/${paymentId}`;
+    const url = `https://sami-industry-server.vercel.app/order/${paymentId}`;
     const { data: order, isLoading } = useQuery(["booking", paymentId], () =>
         fetch(url, {
             method: "GET",

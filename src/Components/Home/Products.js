@@ -1,11 +1,17 @@
 import useProducts from "../../Hooks/useProducts";
 import Footer from "../../Shared/Footer";
 import HeaderNavbar from "../../Shared/HeaderNavbar/HeaderNavbar";
+import Loading from "../../Shared/Loading";
 import PageTitle from "../../Shared/PageTitle";
 import Product from "./Product";
 
 const Products = () => {
-    const [products, setProducts] = useProducts([]);
+    const [products, setProducts, productLoading] = useProducts([]);
+    console.log(productLoading);
+    if (productLoading) {
+        return <Loading />;
+    }
+    console.log(products);
     return (
         <>
             <HeaderNavbar></HeaderNavbar>

@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../../Shared/Loading";
 import HeaderNavbar from "../../Shared/HeaderNavbar/HeaderNavbar";
+import { useQuery } from "react-query";
+import axios from "axios";
 
 const Order = () => {
     const [user, loading] = useAuthState(auth);
@@ -19,18 +21,24 @@ const Order = () => {
         handleSubmit,
     } = useForm();
 
-    const [product, setProduct] = useState([]);
-    useEffect(() => {
-        fetch(`https://samindustry.herokuapp.com/product/${productId}`)
-            .then((res) => res.json())
-            .then((data) => setProduct(data));
-    }, [productId]);
+    const { data: product = [], isLoading } = useQuery({
+        queryKey: ["product", productId],
+        queryFn: async () => {
+            const res = await axios.get(
+                `http://localhost:5000/product/${productId}`
+            );
+            return res.data;
+        },
+    });
 
-    const { price, img, name, about, quantity, minimumOrderQuantity } = product;
-
-    if (loading) {
+    if (loading || isLoading) {
         return <Loading></Loading>;
     }
+
+    console.log(product);
+
+    const { price, img, name, about, quantity, minimumOrderQuantity } =
+        product[0];
 
     const onSubmit = (data) => {
         const price = parseInt(product.price * data.quantity);
@@ -45,7 +53,7 @@ const Order = () => {
             productImg: product.img,
         };
 
-        fetch("https://samindustry.herokuapp.com/order", {
+        fetch("http://localhost:5000/orders", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

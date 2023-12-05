@@ -5,7 +5,7 @@ const useProducts = () => {
     const [products, setProducts] = useState([]);
     const [productLoading, setProductLoading] = useState(true);
     useEffect(() => {
-        axios.get("https://samindustry.herokuapp.com/product").then((data) => {
+        axios.get("http://localhost:5000/products").then((data) => {
             const newData = data.data;
             setProducts(newData);
             setProductLoading(false);

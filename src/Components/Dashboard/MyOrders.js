@@ -27,7 +27,7 @@ const MyOrders = () => {
     useEffect(() => {
         if (user) {
             fetch(
-                `https://samindustry.herokuapp.com/order?email=${user.email}`,
+                `https://sami-industry-server.vercel.app/order?email=${user.email}`,
                 {
                     method: "GET",
                     headers: {
@@ -51,7 +51,7 @@ const MyOrders = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`https://samindustry.herokuapp.com/order/${id}`, {
+        fetch(`https://sami-industry-server.vercel.app/order/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,

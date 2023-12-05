@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 import Product from "./Product";
 import DownArrow from "../../Assets/images/right-arrow.png";
+import Loading from "../../Shared/Loading";
 
 const ProductsHome = () => {
-    const [products, setProducts] = useProducts([]);
+    const [products, setProducts, productLoading] = useProducts([]);
 
+    if (productLoading) {
+        return <Loading />;
+    }
     return (
         <div className="pb-5">
             <div className="container">

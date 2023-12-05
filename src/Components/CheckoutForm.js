@@ -16,7 +16,7 @@ const CheckoutForm = ({ order }) => {
     console.log(paymentPrice);
 
     useEffect(() => {
-        fetch("https://samindustry.herokuapp.com/create-payment-intent", {
+        fetch("https://sami-industry-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -83,7 +83,7 @@ const CheckoutForm = ({ order }) => {
             console.log(payment);
 
             console.log(payment);
-            fetch(`https://samindustry.herokuapp.com/order/${_id}`, {
+            fetch(`https://sami-industry-server.vercel.app/order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",
